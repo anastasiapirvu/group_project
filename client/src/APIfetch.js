@@ -8,9 +8,9 @@ function APIfetch() {
   const [error, setError] = useState("");
   const [ingredientList, setIngredientsList] = useState("");
   //do we want the input ingredients stored in state?
-  // const API_KEY = process.env.REACT_APP_API_KEY;
-  const API_KEY = "f63c37e49c7a401d9a639c55ed778b11";
+  const API_KEY = process.env.REACT_APP_API_KEY;
   const baseURL = "https://api.spoonacular.com/recipes/findByIngredients"
+  // console.log(API_KEY)
 
   //{{baseUrl}}/recipes/findByIngredients?ingredients=apples,flour,sugar&number=5&limitLicense=<boolean>&ranking=1&ignorePantry=true&apiKey=f63c37e49c7a401d9a639c55ed778b11&includeInstruction=true
   //https://api.spoonacular.com/recipes/findByIngredients/recipes/findByIngredients?ingredients=apples,flour,sugar&number=5&ranking=1&ignorePantry=true&apiKey=f63c37e49c7a401d9a639c55ed778b11
@@ -32,7 +32,7 @@ function APIfetch() {
 
     let URL = `${baseURL}?ingredients=${ingredientList}&number=5&limitLicense=<boolean>&ranking=1&ignorePantry=true&apiKey=${API_KEY}`
 
-    await pause(5000);
+    await pause(500);
 
     try{
       let response = await fetch(URL);
@@ -53,6 +53,15 @@ function APIfetch() {
       <div className="APIfetch">
         <h3>API testing is here:</h3>
         <button type="button" onClick={handleClick} >FETCH</button>
+        
+        {loading && <h3>LOADING...</h3>}
+
+        {error && <h3 style={{ color: "red" }}>{error}</h3>}
+        
+        <ul>
+          { recipes && recipes.map(r => <li key={r.id}> {r.title}, Missing Ingredients: {r.missedIngredientCount} </li>)}
+          {/* <img src={r.image} alt={r.title}/></li>)} */}
+        </ul>
     
       </div>
     );
