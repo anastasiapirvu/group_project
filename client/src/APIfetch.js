@@ -4,22 +4,19 @@ import React, { useState } from "react";
 function APIfetch() {
   const [loading, setLoading] = useState(false);
   const [recipes, setRecipes] = useState(null);
+  const [featId, setFeatId] = useState(null);
   const [featRecipe, setFeatRecipe] = useState(null);
   const [error, setError] = useState("");
   const [ingredientList, setIngredientsList] = useState("");
-  //do we want the input ingredients stored in state?
+
   const API_KEY = process.env.REACT_APP_API_KEY;
-  const baseURL = "https://api.spoonacular.com/recipes/findByIngredients"
+  const baseURL = "https://api.spoonacular.com/recipes"
   // console.log(API_KEY)
 
-  //{{baseUrl}}/recipes/findByIngredients?ingredients=apples,flour,sugar&number=5&limitLicense=<boolean>&ranking=1&ignorePantry=true&apiKey=f63c37e49c7a401d9a639c55ed778b11&includeInstruction=true
-  //https://api.spoonacular.com/recipes/findByIngredients/recipes/findByIngredients?ingredients=apples,flour,sugar&number=5&ranking=1&ignorePantry=true&apiKey=f63c37e49c7a401d9a639c55ed778b11
-  
   function handleClick(){
     setIngredientsList("apples,flour,sugar")
     getRecipes(ingredientList)
   }
-
 
   async function pause(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
@@ -30,7 +27,7 @@ function APIfetch() {
     setRecipes(null);
     setError("");
 
-    let URL = `${baseURL}?ingredients=${ingredientList}&number=5&limitLicense=<boolean>&ranking=1&ignorePantry=true&apiKey=${API_KEY}`
+    let URL = `${baseURL}/findByIngredients?ingredients=${ingredientList}&number=5&limitLicense=<boolean>&ranking=1&ignorePantry=true&apiKey=${API_KEY}`
 
     await pause(500);
 
@@ -49,6 +46,36 @@ function APIfetch() {
     setLoading(false)
   }
 
+  function handleRecipe(id){
+    setFeatId(id)
+    getRecipeMethod(featId)
+    console.log(id)
+  }
+
+  async function getRecipeMethod(id){
+    setLoading(true);
+    setFeatRecipe(null);
+    setError("");
+
+    let URL = `${baseURL}/${id}/information?includeNutrition=false&apiKey=${API_KEY}`
+    console.log(URL)
+    await pause(500);
+
+    try{
+      let response = await fetch(URL);
+      console.log(response.json);
+      if(response.ok) {
+        let data = await response.json();
+        setFeatRecipe(data);
+      } else {
+        setError(`Server Error: ${response.status} ${response.statusText}`)
+      }
+    } catch (err) {
+      setError(`Network err: ${err.message}`);
+    }
+    setLoading(false)
+  }
+
     return (
       <div className="APIfetch">
         <h3>API testing is here:</h3>
@@ -58,10 +85,14 @@ function APIfetch() {
 
         {error && <h3 style={{ color: "red" }}>{error}</h3>}
         
-        <ul>
-          { recipes && recipes.map(r => <li key={r.id}> {r.title}, Missing Ingredients: {r.missedIngredientCount} </li>)}
-          {/* <img src={r.image} alt={r.title}/></li>)} */}
-        </ul>
+        {featRecipe && <h4 style={{ color: "green" }}>Selected Recipe: {featRecipe.title}</h4>}
+        
+
+        { recipes && recipes.map((r) =>(
+          <div key={r.id} >
+            <p> {r.title}, Missing Ingredients: {r.missedIngredientCount} </p>
+            <img src={r.image} alt={r.title} onClick={ () => handleRecipe(r.id)}/>
+          </div>))}
     
       </div>
     );
