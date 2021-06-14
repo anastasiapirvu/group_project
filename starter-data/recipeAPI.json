@@ -1,0 +1,213 @@
+{
+    "vegetarian": false,
+    "vegan": false,
+    "glutenFree": true,
+    "dairyFree": true,
+    "veryHealthy": false,
+    "cheap": false,
+    "veryPopular": false,
+    "sustainable": false,
+    "weightWatcherSmartPoints": 6,
+    "gaps": "no",
+    "lowFodmap": false,
+    "aggregateLikes": 0,
+    "spoonacularScore": 56.0,
+    "healthScore": 19.0,
+    "creditsText": "Jen West",
+    "sourceName": "Pink When",
+    "pricePerServing": 440.93,
+    "extendedIngredients": [
+        {
+            "id": 9003,
+            "aisle": "Produce",
+            "image": "apple.jpg",
+            "consistency": "solid",
+            "name": "apple",
+            "nameClean": "apple",
+            "original": "apple slicer (*optional)",
+            "originalString": "apple slicer (*optional)",
+            "originalName": "apple slicer (*optional)",
+            "amount": 1.0,
+            "unit": "serving",
+            "meta": [
+                "(*optional)"
+            ],
+            "metaInformation": [
+                "(*optional)"
+            ],
+            "measures": {
+                "us": {
+                    "amount": 1.0,
+                    "unitShort": "serving",
+                    "unitLong": "serving"
+                },
+                "metric": {
+                    "amount": 1.0,
+                    "unitShort": "serving",
+                    "unitLong": "serving"
+                }
+            }
+        },
+        {
+            "id": 6008,
+            "aisle": "Canned and Jarred",
+            "image": "beef-broth.png",
+            "consistency": "liquid",
+            "name": "beef broth",
+            "nameClean": "beef broth",
+            "original": "2 cups beef broth",
+            "originalString": "2 cups beef broth",
+            "originalName": "beef broth",
+            "amount": 2.0,
+            "unit": "cups",
+            "meta": [],
+            "metaInformation": [],
+            "measures": {
+                "us": {
+                    "amount": 2.0,
+                    "unitShort": "cups",
+                    "unitLong": "cups"
+                },
+                "metric": {
+                    "amount": 473.176,
+                    "unitShort": "ml",
+                    "unitLong": "milliliters"
+                }
+            }
+        },
+        {
+            "id": 10219335,
+            "aisle": "Spices and Seasonings",
+            "image": "cinnamon-sugar.png",
+            "consistency": "solid",
+            "name": "cinnamon sugar",
+            "nameClean": "cinnamon sugar",
+            "original": "cinnamon sugar (*optional)",
+            "originalString": "cinnamon sugar (*optional)",
+            "originalName": "cinnamon sugar (*optional)",
+            "amount": 1.0,
+            "unit": "serving",
+            "meta": [
+                "(*optional)"
+            ],
+            "metaInformation": [
+                "(*optional)"
+            ],
+            "measures": {
+                "us": {
+                    "amount": 1.0,
+                    "unitShort": "serving",
+                    "unitLong": "serving"
+                },
+                "metric": {
+                    "amount": 1.0,
+                    "unitShort": "serving",
+                    "unitLong": "serving"
+                }
+            }
+        },
+        {
+            "id": 1069003,
+            "aisle": "Produce",
+            "image": "grannysmith-apple.png",
+            "consistency": "solid",
+            "name": "green apples",
+            "nameClean": "green apple",
+            "original": "2 green apples",
+            "originalString": "2 green apples",
+            "originalName": "green apples",
+            "amount": 2.0,
+            "unit": "",
+            "meta": [
+                "green"
+            ],
+            "metaInformation": [
+                "green"
+            ],
+            "measures": {
+                "us": {
+                    "amount": 2.0,
+                    "unitShort": "",
+                    "unitLong": ""
+                },
+                "metric": {
+                    "amount": 2.0,
+                    "unitShort": "",
+                    "unitLong": ""
+                }
+            }
+        },
+        {
+            "id": 10218,
+            "aisle": "Meat",
+            "image": "pork-tenderloin-raw.png",
+            "consistency": "solid",
+            "name": "pork tenderloin",
+            "nameClean": "pork tenderloin",
+            "original": "Pork Tenderloin",
+            "originalString": "Pork Tenderloin",
+            "originalName": "Pork Tenderloin",
+            "amount": 1.0,
+            "unit": "serving",
+            "meta": [],
+            "metaInformation": [],
+            "measures": {
+                "us": {
+                    "amount": 1.0,
+                    "unitShort": "serving",
+                    "unitLong": "serving"
+                },
+                "metric": {
+                    "amount": 1.0,
+                    "unitShort": "serving",
+                    "unitLong": "serving"
+                }
+            }
+        }
+    ],
+    "id": 673463,
+    "title": "Slow Cooker Apple Pork Tenderloin",
+    "readyInMinutes": 45,
+    "servings": 1,
+    "sourceUrl": "http://www.pinkwhen.com/slow-cooker-apple-pork-tenderloin/",
+    "image": "https://spoonacular.com/recipeImages/673463-556x370.jpg",
+    "imageType": "jpg",
+    "summary": "Slow Cooker Apple Pork Tenderloin is a <b>gluten free and primal</b> main course. For <b>$4.19 per serving</b>, this recipe <b>covers 27%</b> of your daily requirements of vitamins and minerals. One serving contains <b>486 calories</b>, <b>34g of protein</b>, and <b>12g of fat</b>. Only a few people made this recipe, and 1 would say it hit the spot. From preparation to the plate, this recipe takes approximately <b>45 minutes</b>. Head to the store and pick up pork tenderloin, apples, cinnamon sugar, and a few other things to make it today. To use up the apple you could follow this main course with the <a href=\"https://spoonacular.com/recipes/apple-party-from-the-vault-apple-craisin-bread-pudding-515137\">Apple Party! From the Vault – Apple Craisin Bread Pudding</a> as a dessert. All things considered, we decided this recipe <b>deserves a spoonacular score of 58%</b>. This score is pretty good. Try <a href=\"https://spoonacular.com/recipes/slow-cooker-pork-tenderloin-143861\">Slow Cooker Pork Tenderloin</a>, <a href=\"https://spoonacular.com/recipes/havana-slow-cooker-pork-tenderloin-357547\">Havana Slow Cooker Pork Tenderloin</a>, and <a href=\"https://spoonacular.com/recipes/slow-cooker-teriyaki-pork-tenderloin-470380\">Slow Cooker Teriyaki Pork Tenderloin</a> for similar recipes.",
+    "cuisines": [],
+    "dishTypes": [
+        "lunch",
+        "main course",
+        "main dish",
+        "dinner"
+    ],
+    "diets": [
+        "gluten free",
+        "dairy free"
+    ],
+    "occasions": [],
+    "winePairing": {
+        "pairedWines": [
+            "malbec",
+            "pinot noir",
+            "sangiovese"
+        ],
+        "pairingText": "Pork Tenderloin works really well with Malbec, Pinot Noir, and Sangiovese. Pinot noir's light body is great for lean cuts, medium bodied sangiovese complement meaty sauces, stews, and other multi-ingredient dishes, and full-bodied tannic malbec pairs with fatty cuts and barbecue. The Menage a Trois Malbec with a 4.4 out of 5 star rating seems like a good match. It costs about 14 dollars per bottle.",
+        "productMatches": [
+            {
+                "id": 448266,
+                "title": "Menage a Trois Malbec",
+                "description": "An irresistible blend of blackberries, blueberries, dark cherries and hints of spice in its wake. With soft, round tannins, and a velvety finish, this wine is passion personified.The perfect pairing with grilled pork, smoked salmon and pasta with pesto sauce.",
+                "price": "$13.99",
+                "imageUrl": "https://spoonacular.com/productImages/448266-312x231.jpg",
+                "averageRating": 0.8800000000000001,
+                "ratingCount": 8.0,
+                "score": 0.8400000000000001,
+                "link": "https://click.linksynergy.com/deeplink?id=*QCiIS6t4gA&mid=2025&murl=https%3A%2F%2Fwww.wine.com%2Fproduct%2Fmenage-a-trois-malbec-2014%2F174493"
+            }
+        ]
+    },
+    "instructions": null,
+    "analyzedInstructions": [],
+    "originalId": null,
+    "spoonacularSourceUrl": "https://spoonacular.com/slow-cooker-apple-pork-tenderloin-673463"
+}
