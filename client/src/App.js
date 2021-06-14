@@ -4,6 +4,8 @@ import IngredientSearch from './IngredientSearch'
 
 import './App.css';
 import APIfetch from './APIfetch.js'
+import './App.css';
+import ShoppingList from './ShoppingList'
 
 function App() {
   return (
@@ -18,6 +20,7 @@ function App() {
 
     <APIfetch />
 
+    <ShoppingList />
     </div>
   );
 }
