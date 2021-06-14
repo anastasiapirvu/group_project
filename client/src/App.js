@@ -4,7 +4,6 @@ import IngredientSearch from './IngredientSearch'
 
 import './App.css';
 import APIfetch from './APIfetch.js'
-import './App.css';
 import ShoppingList from './components/ShoppingList';
 
 function App() {
