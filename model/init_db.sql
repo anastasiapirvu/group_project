@@ -1,16 +1,16 @@
 
 -- (Re)create the table
 
-DROP TABLE IF EXISTS ducks;
-CREATE TABLE ducks (
+DROP TABLE IF EXISTS items;
+CREATE TABLE items(
     id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(20) NOT NULL,
-    prizeMoney INT NOT NULL
+    quantity INT NOT NULL
 );
 
 -- Insert some test data
 
--- INSERT INTO ducks (name, prizeMoney)
--- VALUES
---     ('Bono', 2000),
---     ('Bjork', 6500);
+INSERT INTO items (name, quantity)
+VALUES
+    ('Bananas', 3),
+    ('Eggs', 2);
