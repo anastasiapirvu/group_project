@@ -11,11 +11,7 @@ const con = mysql.createConnection({
   host: DB_HOST || "127.0.0.1",
   user: DB_USER || "root",
   password: DB_PASS,
-<<<<<<< HEAD
   database: DB_NAME || "shoppingList",
-=======
-  database: DB_NAME || "items",
->>>>>>> 5239580f58225866c9b6b6575bbe2cd24fe2b773
   multipleStatements: true
 });
 
