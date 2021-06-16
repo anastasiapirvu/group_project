@@ -12,8 +12,8 @@ router.get("/", (req, res) => {
     res.send({ message: 'Welcome to the ShoppingList' });
 });
 
-//Get ALL items in shopping list
-router.get("/items", async (req, res) => {
+//Get ALL items in shopping
+router.get("/shoppingList", async (req, res) => {
     try {
         let results = await db('SELECT * FROM items');
         let items = results.data;
@@ -22,3 +22,5 @@ router.get("/items", async (req, res) => {
         res.status(500).send({ error: err.message });
     }
 });
+
+module.exports = router;
