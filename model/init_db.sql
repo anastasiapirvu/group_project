@@ -21,7 +21,7 @@ CREATE TABLE items(
     quantity INT NOT NULL,
     unit VARCHAR(20) NOT NULL,
     user_id INT NOT NULL,
-    FOREIGN KEY (users_id) REFERENCES users(id) ON DELETE CASCADE
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );
 
 -- Insert some test data
