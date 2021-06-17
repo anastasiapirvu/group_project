@@ -1,6 +1,6 @@
 
 import React, { useState } from "react";
-import APIfetch from './components/APIfetch.js'
+import APIfetch from './components/helper/APIfetch.js'
 import IngredientSearch from './components/IngredientSearch'
 import ShoppingList from './components/ShoppingList';
 import Favorites from "./components/Favorites";

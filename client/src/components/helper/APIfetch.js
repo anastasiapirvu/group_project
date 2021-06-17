@@ -7,15 +7,14 @@ function APIfetch() {
   const [featId, setFeatId] = useState(null);
   const [featRecipe, setFeatRecipe] = useState(null);
   const [error, setError] = useState("");
-  const [ingredientList, setIngredientsList] = useState("");
+  // const [ingredientList, setIngredientsList] = useState("");
 
   const API_KEY = process.env.REACT_APP_API_KEY;
   const baseURL = "https://api.spoonacular.com/recipes"
   // console.log(API_KEY)
 
   function handleClick(){
-    setIngredientsList("apples,flour,sugar")
-    getRecipes(ingredientList)
+    getRecipes("apples,flour,sugar")
   }
 
   async function pause(ms) {
@@ -88,7 +87,7 @@ function APIfetch() {
         {featRecipe && <h4 style={{ color: "green" }}>Selected Recipe: {featRecipe.title}</h4>}
         
 
-        { recipes && recipes.map((r) =>(
+        {recipes && recipes.map((r) =>(
           <div key={r.id} >
             <p> {r.title}, Missing Ingredients: {r.missedIngredientCount} </p>
             <img src={r.image} alt={r.title} onClick={ () => handleRecipe(r.id)}/>
