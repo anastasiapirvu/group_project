@@ -20,7 +20,12 @@ CREATE TABLE items(
 
 -- Insert some test data
 
-INSERT INTO items (name, quantity)
+INSERT INTO users (first_name, last_name)
 VALUES
-    ('Bananas', 3),
-    ('Eggs', 2);
+    ('Leslie', 'Knope');
+
+
+INSERT INTO items (name, quantity, unit, user_id)
+VALUES
+    ('Bananas', 3, 'bananas', 1),
+    ('Eggs', 2, 'eggs', 1);
