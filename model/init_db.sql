@@ -21,14 +21,10 @@ CREATE TABLE items(
     quantity INT NOT NULL,
     unit VARCHAR(20) NOT NULL,
     user_id INT NOT NULL,
-    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE RESTRICT
+    FOREIGN KEY (users_id) REFERENCES users(id) ON DELETE CASCADE
 );
 
 -- Insert some test data
-
-
-
-
 INSERT INTO items (name, quantity, unit, user_id)
 VALUES
     ('Bananas', 3, 'bananas', 1),
