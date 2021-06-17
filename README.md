@@ -10,7 +10,7 @@
 
 
 
-## CREATING THE TABLE (Kat)
+## Initialising the database (Kat)
 
 - Create .env in root directory, with:
 - DB_HOST=localhost
@@ -20,5 +20,5 @@
 
 
 - Create database called shoppingList (watch capitalisation)
-- in mysql, type: ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'YOURPASSWORD';  (Replace YOURPASSWORD with your actual password)
+- In MySQL, type: ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'YOURPASSWORD';  (Replace YOURPASSWORD with your actual password)
 - In the terminal, in the main folder, run node model/database.js
