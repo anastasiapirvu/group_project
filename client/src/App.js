@@ -8,15 +8,25 @@ import Favorites from "./components/Favorites";
 import Recipies from "./components/Recipies";
 import './App.css';
 
-function App() {
+
+function App(props) {
 
   //Hooks
   const [isFavorites, setIsFavorites] = useState(true)
-  const [isRecipie, setIsRecipie] = useState(false)
+  const [isRecipie, setIsRecipie] = useState(false) //caution - spelling!
+  const [recipes, setRecipes] = useState(null);
+  const [featRecipe, setFeatRecipe] = useState(null);
 
-//  const handleChangeView = (isFavorites) => {
-//   setIsFavorites(isFavorites)
-// }
+  // let clickId = 0
+
+  // function handleRecipe(id){
+  //   // props.getRecipeMethodCb(id)
+  //   clickId = id
+  // }
+
+ const handleChangeView = (isFavorites) => {
+  setIsFavorites(isFavorites)
+}
 
   return (
     <div className="App">
@@ -28,7 +38,20 @@ function App() {
     <TopThree />
 
 
-    <APIfetch />
+    <APIfetch 
+      setRecipesCb={(data) => setRecipes(data)}
+      setFeatRecipeCb={(recipeData) => setFeatRecipe(recipeData)}
+      // clickedId={clickId}
+      handleRecipeCb={()} //how to hand prop down to API
+    />
+
+{featRecipe && <h4 style={{ color: "green" }}>Selected Recipe: {featRecipe.title}</h4>}
+
+        {recipes && recipes.map((r) =>(
+          <div key={r.id} >
+            <p> {r.title}, Missing Ingredients: {r.missedIngredientCount} </p>
+            <img src={r.image} alt={r.title} onClick={ () => handleRecipeCb(r.id)}/>
+          </div>))}
 
     <ShoppingList />
     {/* <nav>

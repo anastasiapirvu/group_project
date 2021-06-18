@@ -1,20 +1,16 @@
 import React, { useState } from "react";
 
 
-function APIfetch() {
+function APIfetch(props) {
   const [loading, setLoading] = useState(false);
-  const [recipes, setRecipes] = useState(null);
-  const [featId, setFeatId] = useState(null);
-  const [featRecipe, setFeatRecipe] = useState(null);
   const [error, setError] = useState("");
-  // const [ingredientList, setIngredientsList] = useState("");
-
   const API_KEY = process.env.REACT_APP_API_KEY;
   const baseURL = "https://api.spoonacular.com/recipes"
-  // console.log(API_KEY)
 
+  // let clickedId = props.clickedId
+  
   function handleClick(){
-    getRecipes("apples,flour,sugar")
+    getRecipes("apples,flour,sugar") //props.ingredients go here
   }
 
   async function pause(ms) {
@@ -23,7 +19,7 @@ function APIfetch() {
 
   async function getRecipes(ingredientList){
     setLoading(true);
-    setRecipes(null);
+    props.setRecipesCb(null);
     setError("");
 
     let URL = `${baseURL}/findByIngredients?ingredients=${ingredientList}&number=5&limitLicense=<boolean>&ranking=1&ignorePantry=true&apiKey=${API_KEY}`
@@ -35,7 +31,7 @@ function APIfetch() {
       console.log(response.json);
       if(response.ok) {
         let data = await response.json();
-        setRecipes(data);
+        props.setRecipesCb(data);
       } else {
         setError(`Server Error: ${response.status} ${response.statusText}`)
       }
@@ -45,15 +41,12 @@ function APIfetch() {
     setLoading(false)
   }
 
-  function handleRecipe(id){
-    setFeatId(id)
-    getRecipeMethod(featId)
-    console.log(id)
-  }
+     {{ props.handleRecipeCb=(id) => getRecipeMethod(id) }}
+ 
 
   async function getRecipeMethod(id){
     setLoading(true);
-    setFeatRecipe(null);
+    props.setFeatRecipeCb(null);
     setError("");
 
     let URL = `${baseURL}/${id}/information?includeNutrition=false&apiKey=${API_KEY}`
@@ -65,7 +58,7 @@ function APIfetch() {
       console.log(response.json);
       if(response.ok) {
         let data = await response.json();
-        setFeatRecipe(data);
+        props.setFeatRecipeCb(data);
       } else {
         setError(`Server Error: ${response.status} ${response.statusText}`)
       }
@@ -84,14 +77,9 @@ function APIfetch() {
 
         {error && <h3 style={{ color: "red" }}>{error}</h3>}
         
-        {featRecipe && <h4 style={{ color: "green" }}>Selected Recipe: {featRecipe.title}</h4>}
+      
         
 
-        {recipes && recipes.map((r) =>(
-          <div key={r.id} >
-            <p> {r.title}, Missing Ingredients: {r.missedIngredientCount} </p>
-            <img src={r.image} alt={r.title} onClick={ () => handleRecipe(r.id)}/>
-          </div>))}
     
       </div>
     );
