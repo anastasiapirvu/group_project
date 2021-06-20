@@ -33,7 +33,7 @@ const [searchResult, setSearchResult] = useState([]);
     }, [searchInput]);
 
   async function getData() {
-    let URL = `https://api.spoonacular.com/food/ingredients/search?query=${searchInput}&number=3&sort=calories&sortDirection=desc&apiKey=cdb2dea728014edeaf4327c74c5429da`
+    let URL = `https://api.spoonacular.com/food/ingredients/search?query=${searchInput}&number=3&sort=calories&sortDirection=desc`
 
       let response = await fetch(URL);
       return response.json();

@@ -9,20 +9,22 @@ function APIfetch(props) {
 
   // let clickedId = props.clickedId
   
-  function handleClick(){
-    getRecipes("apples,flour,sugar") //props.ingredients go here
+  function getRecipesFromIngredients(ingredientList){
+    getRecipes(ingredientList) //props.ingredients go here
   }
 
   async function pause(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
   }
 
-  async function getRecipes(ingredientList){
+  let ingredients = props.ingredientsSearch
+
+  async function getRecipes(ingredients){
     setLoading(true);
     props.setRecipesCb(null);
     setError("");
 
-    let URL = `${baseURL}/findByIngredients?ingredients=${ingredientList}&number=5&limitLicense=<boolean>&ranking=1&ignorePantry=true&apiKey=${API_KEY}`
+    let URL = `${baseURL}/findByIngredients?ingredients=${ingredients}&number=5&limitLicense=<boolean>&ranking=1&ignorePantry=true&apiKey=${API_KEY}`
 
     await pause(500);
 
@@ -41,10 +43,7 @@ function APIfetch(props) {
     setLoading(false)
   }
 
-     {{ props.handleRecipeCb=(id) => getRecipeMethod(id) }}
- 
-
-  async function getRecipeMethod(id){
+    async function getRecipeMethod(id){
     setLoading(true);
     props.setFeatRecipeCb(null);
     setError("");
@@ -71,7 +70,7 @@ function APIfetch(props) {
     return (
       <div className="APIfetch">
         <h3>API testing is here:</h3>
-        <button type="button" onClick={handleClick} >FETCH</button>
+        {/* <button type="button" onClick={handleClick} >FETCH</button> */}
         
         {loading && <h3>LOADING...</h3>}
 
@@ -86,4 +85,4 @@ function APIfetch(props) {
   }
   
   export default APIfetch;
-  
+ 
