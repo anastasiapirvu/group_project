@@ -3,29 +3,27 @@ import './TopThree.css';
 
 
 
-function TopThree (){
+function TopThree(props){
 
+  const [topThree, setTopThree] = useState([
+    {
+      title: "Apricot Glazed Apple Tart"
+    },
+    {
+      title: "Apple Turnover"
+    },
+    {
+    title: "Apple Donut"
+    },
+      ])
 
     return (
         <div className="TopThree">
-
-{/* 
-        <Modal show={show} onHide={handleClick}>
-        <Modal.Header closeButton>
-          <Modal.Title></Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <ProductDisplay recipes={recipes} />
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClick}>
-            Open
-          </Button>
-          <Button variant="secondary" name="" onClick={handleClick}>
-            Save as favourite
-          </Button>
-        </Modal.Footer>
-      </Modal> */}
+          <h2>Your Top Three Suggestions</h2>
+        {topThree.map(t =>(
+          <li key ={t.title}>{t.title}</li>
+        )
+        )}
 
       </div>
 

@@ -12,7 +12,8 @@ CREATE TABLE users(
 
 INSERT INTO users (first_name, last_name)
 VALUES
-('Leslie', 'Knope');
+('Leslie', 'Knope'),
+('Ben', 'Wyatt');
     
 
 CREATE TABLE items(
@@ -28,4 +29,5 @@ CREATE TABLE items(
 INSERT INTO items (name, quantity, unit, user_id)
 VALUES
     ('Bananas', 3, 'bananas', 1),
+    ('Flour', 200, 'grams', 2),
     ('Eggs', 2, 'eggs', 1);

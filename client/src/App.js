@@ -3,10 +3,10 @@ import React, { useState } from "react";
 import APIfetch from './components/helper/APIfetch.js'
 import IngredientSearch from './components/IngredientSearch'
 import ShoppingList from './components/ShoppingList';
+import TopThree from './components/TopThree';
 import Favorites from "./components/Favorites";
 import Recipies from "./components/Recipies";
 import './App.css';
-
 
 function App() {
 
@@ -14,25 +14,24 @@ function App() {
   const [isFavorites, setIsFavorites] = useState(true)
   const [isRecipie, setIsRecipie] = useState(false)
 
-
- const handleChangeView = (isFavorites) => {
-  setIsFavorites(isFavorites)
-}
+//  const handleChangeView = (isFavorites) => {
+//   setIsFavorites(isFavorites)
+// }
 
   return (
     <div className="App">
     <h2>I am Hungry</h2>
 
-    <IngredientSearch/>
+    <IngredientSearch />
 
 
-
+    <TopThree />
 
 
     <APIfetch />
 
     <ShoppingList />
-    <nav>
+    {/* <nav>
       <button className={isFavorites? "active" : null} onClick={() => handleChangeView(true)}>Favorites</button>
       <button className={!isFavorites? "active" : null} onClick={() => handleChangeView(false)}>Recipie</button>
       </nav>
@@ -40,8 +39,8 @@ function App() {
 
 
     { isFavorites ? <Favorites /> 
-    : <Recipies />
-  }
+    : <Recipies /> */}
+  {/* } */}
       
 
     </div>
