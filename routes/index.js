@@ -18,15 +18,32 @@ router.get("/shoppingList", async (req, res) => {
   }
 });
 
-// GET duck with ID
+// GET item with ID
+// router.get("/shoppingList/:id", async (req, res) => {
+//   let itemId = req.params.id;
+
+//   try {
+//       let results = await db(`SELECT * FROM items WHERE id = ${itemId}`);
+//       let items = results.data;
+//       if (items.length === 0) {
+//           res.status(404).send({ error: 'Item not found' });
+//       } else {
+//           res.send(items[0]);
+//       }
+//   } catch (err) {
+//       res.status(500).send({ error: err.message });
+//   }
+// });
+
+//GET items with User ID
 router.get("/shoppingList/:id", async (req, res) => {
-  let itemId = req.params.id;
+  let userId = req.params.id;
 
   try {
-      let results = await db(`SELECT * FROM items WHERE id = ${itemId}`);
+      let results = await db(`SELECT * FROM items WHERE user_id = ${userId}`);
       let items = results.data;
       if (items.length === 0) {
-          res.status(404).send({ error: 'Item not found' });
+          res.status(404).send({ error: 'User not found' });
       } else {
           res.send(items[0]);
       }
