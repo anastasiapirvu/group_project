@@ -26,7 +26,6 @@ function App(props) {
     <div className="App">
     <h2>I am Hungry</h2>
 
-    <IngredientSearch />
 
     <TopThree />
 
