@@ -27,21 +27,21 @@ function ShoppingList(props) {
   }
 
 
-    function handleChange(event) {
-      let newId = event.target.value;
-      setUserId(newId)
-      getItems(newId);
-      }
+    // function handleChange(event) {
+    //   let newId = event.target.value;
+    //   setUserId(newId)
+    //   getItems(newId);
+    //   }
   
   return(
 
     <div className="ShoppingList">
     <h3>Delicious things I need...</h3>
-    <h4>For testing purposes</h4>
+    {/* <h4>For testing purposes</h4>
     <select userId={userId} value={userId} onChange={handleChange}>
                 <option>1</option>
                 <option>2</option>
-        </select>
+        </select> */}
     
     <div className = 'list'>
       <ul>
