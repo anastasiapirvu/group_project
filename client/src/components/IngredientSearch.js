@@ -19,23 +19,8 @@ const [query, setQuery] = useState("");
 
 const [loading, setLoading] = useState(false);
 const [error, setError] = useState("");
-// const [recipes, setRecipes] = useState(null);
+
 const [featRecipe, setFeatRecipe] = useState(null);
-
-
-  useEffect(  
-    () => {
-      getRecipes()
-      
-      .then(
-        response => {
-          console.log(response)
-          setSearchResult(response)
-        }
-      )
-
-    }, [query]); // query value (instead of passing search value) since every time writing a letter, the data would be fetched - limited API calls
-
 
 
   async function pause(ms) {
@@ -47,7 +32,7 @@ const [featRecipe, setFeatRecipe] = useState(null);
     setSearchResult(null);
     setError("");
 
-    let URL = `${baseURL}/findByIngredients?ingredients=${ingredients}&number=5&limitLicense=<boolean>&ranking=1&ignorePantry=true&apiKey=${API_KEY}`
+    let URL = `${baseURL}/findByIngredients?ingredients=${ingredients}&number=3&ranking=1&ignorePantry=true&apiKey=${API_KEY}`
 
     await pause(500);
 
@@ -70,7 +55,7 @@ const [featRecipe, setFeatRecipe] = useState(null);
   function handleSubmit(event) {
     console.log("my search in handleSubmit is "+searchInput)
     event.preventDefault();
-    setQuery(searchInput);
+    getRecipes(searchInput);
     setSearchInput("");
   }
 
@@ -90,14 +75,14 @@ const [featRecipe, setFeatRecipe] = useState(null);
           setSearchInput(input.target.value)
           
         }
-      }search // what does this do??
+      }
     />
-        <button type="button">Search</button>
+        <button type="submit">Search</button>
       </form>
     </div>
     {loading && <h3>LOADING...</h3>}
     {error && <h3 style={{ color: "red"}}>{error}</h3>}
-    {searchResult && <SearchResultDisplay data={searchResult} />}
+    {/* {searchResult.map => (r) */}
 
     </>
   );
