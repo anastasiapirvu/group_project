@@ -2,7 +2,6 @@ import React from 'react';
 import './RecipePage.css';
 
 
-
 function RecipePage (){
   //props - recieve ID of featured recipe
     async function pause(ms) {
