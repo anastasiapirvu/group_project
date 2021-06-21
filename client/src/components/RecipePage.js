@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './RecipePage.css';
 
 
@@ -34,8 +34,9 @@ function RecipePage (){
 
     return (
       <div className="RecipePage">
-      <h2>Recipe Page</h2>
-    </div>
+      <h2>Recipe name</h2>
+  
+     </div>
         )
 
     }        

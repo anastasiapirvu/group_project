@@ -23,7 +23,6 @@ const [error, setError] = useState("");
 const [featRecipe, setFeatRecipe] = useState(null);
 
 
-
   useEffect(  
     () => {
       getRecipes()
@@ -90,15 +89,15 @@ const [featRecipe, setFeatRecipe] = useState(null);
         (input) => {
           setSearchInput(input.target.value)
           
-        }}
-     
+        }
+      }search // what does this do??
     />
         <button type="button">Search</button>
       </form>
     </div>
     {loading && <h3>LOADING...</h3>}
     {error && <h3 style={{ color: "red"}}>{error}</h3>}
-    {/* {searchResult && <SearchResultDisplay data={searchResult} />} */}
+    {searchResult && <SearchResultDisplay data={searchResult} />}
 
     </>
   );
