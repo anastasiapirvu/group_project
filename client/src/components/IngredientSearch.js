@@ -1,50 +1,42 @@
 import React, { useState, useEffect } from 'react';
-// import TopThree from "./TopThree";
 import './IngredientSearch.css';
 
-const SearchResultDisplay = ({data}) => {
-  console.log(data)
+function IngredientSearch() {
 
-  return (
-    <ul>
-      {
-        data.map(
-          ingredient => (<li key={ingredient.id}><img src={`https://spoonacular.com/cdn/ingredients_100x100/${ingredient.image}`}></img> {ingredient.name}</li>)
-        )
-      }
-    </ul>
-  )
-}
+const API_KEY = process.env.REACT_APP_API_KEY;
+const baseURL = "https://api.spoonacular.com/recipes"  
 
-function IngredientSearch(props) {
 
-// const [allIngredients,setAllIngredients] = useState([]);
-// const [filterIngredients,setFilterIngredients] = useState();
-
+// State for searching recipes
 const [searchInput, setSearchInput] = useState("");
+
+// State for getting recipes from API
 const [searchResult, setSearchResult] = useState([]);
+
+// State that only submits itself after clicking the search button
+const [query, setQuery] = useState("");
+
+
 const [loading, setLoading] = useState(false);
 const [error, setError] = useState("");
 // const [recipes, setRecipes] = useState(null);
 const [featRecipe, setFeatRecipe] = useState(null);
 
-const API_KEY = process.env.REACT_APP_API_KEY;
-const baseURL = "https://api.spoonacular.com/recipes"
 
   useEffect(  
     () => {
-      getData().then(
-        response => setSearchResult(response.results)
+      getRecipes()
+      
+      .then(
+        response => {
+          console.log(response)
+          setSearchResult(response)
+        }
       )
 
-    }, [searchInput]);
+    }, [query]); // query value (instead of passing search value) since every time writing a letter, the data would be fetched - limited API calls
 
-  async function getData() { //what data is this?
-    let URL = `https://api.spoonacular.com/food/ingredients/search?query=${searchInput}&number=3&sort=calories&sortDirection=desc`
 
-      let response = await fetch(URL);
-      return response.json();
-  }
 
   async function pause(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
@@ -75,25 +67,38 @@ const baseURL = "https://api.spoonacular.com/recipes"
   }
 
 
+  function handleSubmit(event) {
+    console.log("my search in handleSubmit is "+searchInput)
+    event.preventDefault();
+    setQuery(searchInput);
+    setSearchInput("");
+  }
+
 
   return (
     <>
     <div className="IngredientSearch">
+    <form>
       <input 
       type="text" 
       placeholder="What's in my fridge..."
+
+      onSubmit={handleSubmit}
       
       onChange={
         (input) => {
           setSearchInput(input.target.value)
           
         }
-      }search
+      }search // what does this do??
     />
+        <button type="button">Search</button>
+      </form>
     </div>
     {loading && <h3>LOADING...</h3>}
     {error && <h3 style={{ color: "red"}}>{error}</h3>}
     {searchResult && <SearchResultDisplay data={searchResult} />}
+
     </>
   );
 };
