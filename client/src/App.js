@@ -29,8 +29,6 @@ function App(props) {
     <IngredientSearch />
 
     <TopThree />
-    
-    <IngredientSearch/>
 
     <ShoppingList />
 
