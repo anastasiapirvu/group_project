@@ -12,6 +12,7 @@ function App(props) {
   //Hooks
   const [isFavorites, setIsFavorites] = useState(true)
   const [isRecipie, setIsRecipie] = useState(false) //caution - spelling! Do we need this?
+  const [userId, setUserId] = useState(1)
 
 
   const handleChangeView = (isFavorites) => {
@@ -30,7 +31,7 @@ function App(props) {
 
     <TopThree />
 
-    <ShoppingList />
+    <ShoppingList userId={userId}/>
 
     </div>
   );
