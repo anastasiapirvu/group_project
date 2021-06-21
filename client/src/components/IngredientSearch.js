@@ -3,6 +3,9 @@ import './IngredientSearch.css';
 
 function IngredientSearch() {
 
+const API_KEY = process.env.REACT_APP_API_KEY;
+const baseURL = "https://api.spoonacular.com/recipes"  
+
 
 // State for searching recipes
 const [searchInput, setSearchInput] = useState("");
@@ -19,8 +22,6 @@ const [error, setError] = useState("");
 // const [recipes, setRecipes] = useState(null);
 const [featRecipe, setFeatRecipe] = useState(null);
 
-const API_KEY = process.env.REACT_APP_API_KEY;
-const baseURL = "https://api.spoonacular.com/recipes"
 
   useEffect(  
     () => {
