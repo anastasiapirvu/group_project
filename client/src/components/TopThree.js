@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './TopThree.css';
 import starterData from './topThreeStarter.js'
+// import RecipePage from './RecipePage'
 
 
 
@@ -20,26 +21,23 @@ function TopThree(props){
 
     return (
         <div className="TopThree">
+
+          {/* {featRecipe && <RecipePage featRecipe ={featRecipe}/>} */}
+
           <h2>Your Top Three Suggestions</h2>
-        {topThree.map(t => (
-          <li key ={t.id}>{t.title}
-          <br/><img src ={t.image}/>
-            <ul><li className = 'subList' key ={t.title}>
-              <p>Missing Ingredients: {missedList(t).map(m => m+', ')}</p>
-            </li></ul>
+        <ul>
+          {topThree.map(t => (
+          <li key ={t.id}>
+            {t.title}, 
           </li>
-        )
-        )}
+
+        ))}
+        </ul>
 
       </div>
 
-      
-
-        
-            
-        )
-
-    }        
+ 
+        )}
 
 
 export default TopThree;

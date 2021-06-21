@@ -1,6 +1,9 @@
 var express = require('express');
 var router = express.Router();
+const bodyParser = require("body-parser");
 const db = require("../model/helper");
+
+router.use(bodyParser.json());
 
 // homepage
 router.get("/", (req, res) => {
@@ -45,7 +48,7 @@ router.get("/shoppingList/:id", async (req, res) => {
       if (items.length === 0) {
           res.status(404).send({ error: 'User not found' });
       } else {
-          res.send(items[0]);
+          res.send(items);
       }
   } catch (err) {
       res.status(500).send({ error: err.message });

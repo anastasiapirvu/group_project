@@ -2,20 +2,19 @@ import React, { useState, useEffect } from "react";
 import './ShoppingList.css';
 
 
-
-
-function ShoppingList() {
-  const [userId, setUserId] = useState(1)
+function ShoppingList(props) {
+  const [userId, setUserId] = useState(props.userId)
   const [list, setList] = useState([]);
 
 
   useEffect(() => {
-    getItems();
-  }, []);
+    getItems(userId);
+  }, [list]);
 
   async function getItems(userId){
+    console.log('get items', userId)
     try{
-      let response = await fetch(`/${userId}`);
+      let response = await fetch(`/shoppingList/${userId}`);
       if (response.ok) {
         let items = await response.json();
         setList(items);
@@ -38,16 +37,19 @@ function ShoppingList() {
 
     <div className="ShoppingList">
     <h3>Delicious things I need...</h3>
+    <h4>For testing purposes</h4>
     <select userId={userId} value={userId} onChange={handleChange}>
                 <option>1</option>
                 <option>2</option>
         </select>
     
     <div className = 'list'>
-      {list.map(s =>(
-        <li>{s}</li>
-      )
-      )}
+      <ul>
+        {list.map(s =>(
+        <li>{s.name}</li>
+        )
+        )}
+      </ul>
 
       </div>
 </div>
