@@ -1,6 +1,5 @@
 
 import React, { useState } from "react";
-import APIfetch from './components/helper/APIfetch.js'
 import IngredientSearch from './components/IngredientSearch'
 import ShoppingList from './components/ShoppingList';
 import TopThree from './components/TopThree';
@@ -8,15 +7,20 @@ import Favorites from "./components/Favorites";
 import Recipies from "./components/Recipies";
 import './App.css';
 
-function App() {
+function App(props) {
 
   //Hooks
   const [isFavorites, setIsFavorites] = useState(true)
-  const [isRecipie, setIsRecipie] = useState(false)
+  const [isRecipie, setIsRecipie] = useState(false) //caution - spelling! Do we need this?
 
-//  const handleChangeView = (isFavorites) => {
-//   setIsFavorites(isFavorites)
-// }
+
+  const handleChangeView = (isFavorites) => {
+    setIsFavorites(isFavorites)
+  }
+
+  const getRecipeMethod = (id) => {
+    console.log(id)
+  }
 
   return (
     <div className="App">
@@ -24,24 +28,11 @@ function App() {
 
     <IngredientSearch />
 
-
     <TopThree />
-
-
-    <APIfetch />
+    
+    <IngredientSearch/>
 
     <ShoppingList />
-    {/* <nav>
-      <button className={isFavorites? "active" : null} onClick={() => handleChangeView(true)}>Favorites</button>
-      <button className={!isFavorites? "active" : null} onClick={() => handleChangeView(false)}>Recipie</button>
-      </nav>
-
-
-
-    { isFavorites ? <Favorites /> 
-    : <Recipies /> */}
-  {/* } */}
-      
 
     </div>
   );
