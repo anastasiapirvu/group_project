@@ -33,7 +33,7 @@ function App(props) {
       <img src = {logo}></img>
 
       {/* Hamburger Icon */}
-      <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="true" aria-label="Toggle navigation">
+      <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
       </button>
 
@@ -46,6 +46,7 @@ function App(props) {
           </div>
       </div>
       </nav>
+      
     
     <IngredientSearch />
 
