@@ -15,18 +15,36 @@ function App(props) {
   const [userId, setUserId] = useState(1)
 
 
-  const handleChangeView = (isFavorites) => {
-    setIsFavorites(isFavorites)
-  }
+  // const handleChangeView = (isFavorites) => {
+  //   setIsFavorites(isFavorites)
+  // }
 
-  const getRecipeMethod = (id) => {
-    console.log(id)
-  }
+  // const getRecipeMethod = (id) => {
+  //   console.log(id)
+  // }
 
   return (
     <div className="App">
-    <h2>I am Hungry</h2>
+      <nav className="navbar navbar-expand-sm navbar-dark" style={{ backgroundColor: '#52734D' }}>
+      {/* "Brand"/Logo */}
+      <h1><a className="navbar-brand" href="#">I am Hungry</a></h1>
 
+      {/* Hamburger Icon */}
+      <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="true" aria-label="Toggle navigation">
+          <span className="navbar-toggler-icon"></span>
+      </button>
+
+      {/* Menu Items */}
+      <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div className="navbar-nav">
+              <a className="nav-link active" href="#">Home <span className="sr-only">(current)</span></a>
+              <a className="nav-link" href="#">Shopping List</a>
+              <a className="nav-link" href="#">Log in</a>
+          </div>
+      </div>
+      </nav>
+    
+    <IngredientSearch />
 
     <TopThree />
 
