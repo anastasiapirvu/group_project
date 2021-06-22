@@ -44,4 +44,9 @@ nav {
   to {
     transform: rotate(360deg);
   }
+}
+
+.App img {
+  width: 250px;
+}
 } */
