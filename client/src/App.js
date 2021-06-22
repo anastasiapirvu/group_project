@@ -4,7 +4,7 @@ import IngredientSearch from './components/IngredientSearch'
 import ShoppingList from './components/ShoppingList';
 import TopThree from './components/TopThree';
 import Favorites from "./components/Favorites";
-import Recipies from "./components/Recipies";
+
 import './App.css';
 
 function App(props) {
