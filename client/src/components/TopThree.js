@@ -9,7 +9,6 @@ import starterData from './topThreeStarter.js'
 function TopThree(props){
 
   const [topThree, setTopThree] = useState(starterData); //needs to take from IngrediendSearch
-  const [userId, setUserId] = useState(props.userId);
   const [items, setItems] = useState([])
 
   function missedList(recipe){
@@ -32,11 +31,14 @@ function TopThree(props){
   function sortData(t){
 
     for (let ing of t.missedIngredients){
-      let ingredient = [];
+      let ingredient = {};
       if (!ing.unit){
         ing.unit=ing.name; //e.g.  egg has no unit
       }
-      ingredient.push(ing.name, ing.amount, ing.unit, userId)
+      ingredient['name'] = ing.name;
+      ingredient['quantity'] = ing.amount;
+      ingredient['unit'] = ing.unit;
+      ingredient['user_id'] = props.userId;
       addItem(ingredient)
     }
   }
@@ -44,15 +46,14 @@ function TopThree(props){
   //Console logs, but doesn't add to data
   
   async function addItem(ingredient){
-    console.log('add', ingredient)
     let options = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(ingredient)
     };
-
+    console.log(typeof ingredient['quantity'])
     try {
-      let response = await fetch('/shoppingList', options);
+      let response = await fetch(`/shoppingList`, options);
       if (response.ok) {
         let items = await response.json();
         setItems(items);
