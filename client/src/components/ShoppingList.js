@@ -25,6 +25,34 @@ function ShoppingList(props) {
     }
   }
 
+
+  async function deleteItem(id){
+    let options = { method: 'DELETE' };
+    try {
+      let response = await fetch(`/shoppingList/${id}`, options);
+      if (response.ok) {
+        let items = await response.json();
+        setList(items);
+      } else {
+        console.log(`Server error: ${response.status} ${response.statusText}`);
+      }
+    } catch (err) {
+      console.log(`Network error: ${err.message}`);
+    }
+  }
+
+  function capitalise(string){
+    let firstLetter = string.charAt(0).toUpperCase();
+    let newString = string.slice(1);
+    return firstLetter+newString;
+  }
+
+  function nonCapitalise(string){
+    let firstLetter = string.charAt(0).toLowerCase();
+    let newString = string.slice(1);
+    return firstLetter+newString;
+  }
+
     // function handleChange(event) {
     //   let newId = event.target.value;
     //   setUserId(newId)
@@ -42,12 +70,24 @@ function ShoppingList(props) {
     </select> */}
     
     <div className = 'list'>
-      <ul>
-        {list.map(s =>(
-        <li key = {s.id}>{s.name}</li>
-        )
-        )}
-      </ul>
+      <table>
+        <thead>
+          <th>Item</th>
+          <th>Quantity</th>
+          <th>Got it?</th>
+        </thead>
+            {list.map(s =>(
+            <tbody>
+              <tr key = {s.id}>
+                <td>{capitalise(s.name)} </td>
+                <td>{s.quantity} {nonCapitalise(s.unit)} </td>
+                <td><button className = 'gotDis' onClick = {(e => deleteItem(s.id))}>I already have this.</button></td>
+              </tr>
+            </tbody>
+            )
+            )}
+          
+      </table>
 
       </div>
 </div>
