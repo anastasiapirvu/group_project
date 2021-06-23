@@ -3,7 +3,8 @@ import React, { useState } from "react";
 import IngredientSearch from './components/IngredientSearch'
 import ShoppingList from './components/ShoppingList';
 import TopThree from './components/TopThree';
-import Favorites from "./components/Favorites";
+// import Favorites from "./components/Favorites";
+import logo from './images/WhatsInTheFridgeFlat.png'
 
 import './App.css';
 
@@ -11,7 +12,7 @@ function App(props) {
 
   //Hooks
   const [isFavorites, setIsFavorites] = useState(true)
-  const [isRecipie, setIsRecipie] = useState(false) //caution - spelling! Do we need this?
+  // const [isRecipie, setIsRecipie] = useState(false) //caution - spelling! Do we need this?
   const [userId, setUserId] = useState(1)
 
 
@@ -28,6 +29,7 @@ function App(props) {
       <nav className="navbar navbar-expand-sm navbar-dark" style={{ backgroundColor: '#52734D' }}>
       {/* "Brand"/Logo */}
       <h1><a className="navbar-brand" href="#">I am Hungry</a></h1>
+      <img src = {logo}></img>
 
       {/* Hamburger Icon */}
       <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="true" aria-label="Toggle navigation">
