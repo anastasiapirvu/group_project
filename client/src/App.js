@@ -16,15 +16,12 @@ function App(props) {
   // const [isRecipie, setIsRecipie] = useState(false) //caution - spelling! Do we need this?
   const [userId, setUserId] = useState(1)
   const [missingIngredients, setMissingIngredients] = useState([]);
-  const [featRecipe, setFeatRecipe] = useState([])
 
-  // const handleChangeView = (isFavorites) => {
-  //   setIsFavorites(isFavorites)
-  // }
+  return (
 
-  // const getRecipeMethod = (id) => {
-  //   console.log(id)
-  // }
+  <div className="App">
+
+    <nav className="navbar navbar-expand-sm navbar-dark" style={{ backgroundColor: '#52734D' }}>
 
   function setFeatId(id){
     let ix = topThree.findIndex(t => (t.id ===id));
@@ -59,8 +56,9 @@ function App(props) {
     <TopThree userId={userId} selectCb={(id)=> setFeatId(id)}/>
 
     <ShoppingList userId={userId}/>
-
+    
     </div>
+   
   );
 
  

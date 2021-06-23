@@ -61,7 +61,33 @@ const [error, setError] = useState("");
 
   return (
     <>
-   <div className="IngredientSearch">
+     <h2>A Simple Form</h2>
+        <div className="IngredientSearch">
+            {/* Starting from 'md' breakpoint, leave 3 empty cols to left of form spanning 6 cols */}
+            <div className="offset-md-3 col-md-6">
+                <form onSubmit={handleSubmit} className="form-inline my-2 my-lg-0">
+                    <div className="search-group">
+                        <label htmlFor="exampleInputEmail1"></label>
+                        <input
+                          type="text"
+                          className="form-control"
+                          id="exampleInputEmail1" 
+                          aria-describedby="emailHelp"
+                          placeholder="What's in my fridge..."
+                          value={searchInput}
+                          onChange={input => {
+                            setSearchInput(input.target.value);
+                          }}
+                        /> 
+                        <small className="form-text text-muted">Do not include spaces after commas: e.g. Banana,Chocolate,Almonds</small>
+                    </div>
+
+                    <button type="submit" className="btn btn-primary mr-2">Get Recipe</button>
+                </form>
+            </div>
+        </div>
+
+   {/* <div className="IngredientSearch">
         <form onSubmit={handleSubmit}>
           <input
             type="text"
@@ -73,7 +99,7 @@ const [error, setError] = useState("");
           />
           <button type="submit">Get Recipe</button>
         </form>
-      </div>
+      </div> */}
       
     {loading && <h3>LOADING...</h3>}
     {error && <h3 style={{ color: "red"}}>{error}</h3>}
