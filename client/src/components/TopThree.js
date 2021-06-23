@@ -10,6 +10,7 @@ function TopThree(props){
 
   const [topThree, setTopThree] = useState(starterData); //needs to take from IngrediendSearch
   const [userId, setUserId] = useState(props.userId);
+  const [items, setItems] = useState([])
 
   function missedList(recipe){
     let missed = [];
@@ -29,18 +30,39 @@ function TopThree(props){
 
 
   function sortData(t){
+
     for (let ing of t.missedIngredients){
+      let ingredient = [];
       if (!ing.unit){
         ing.unit=ing.name; //e.g.  egg has no unit
       }
-      addItem(ing.name, ing.amount, ing.unit, userId)
+      ingredient.push(ing.name, ing.amount, ing.unit, userId)
+      addItem(ingredient)
     }
   }
   
+  //Console logs, but doesn't add to data
   
-  
-  async function addItem(name, quantity, unit, userId){
-    
+  async function addItem(ingredient){
+    console.log('add', ingredient)
+    let options = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(ingredient)
+    };
+
+    try {
+      let response = await fetch('/shoppingList', options);
+      if (response.ok) {
+        let items = await response.json();
+        setItems(items);
+        console.log('added!')
+      } else {
+        console.log(`Server error: ${response.status} ${response.statusText}`);
+      }
+    } catch (err) {
+      console.log(`Network error: ${err.message}`);
+    }
   }
   
   

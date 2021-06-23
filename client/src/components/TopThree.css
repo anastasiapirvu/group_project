@@ -2,21 +2,21 @@
     list-style: none;
 }
 
-submit:active{
+button:active{
     background-color:greenyellow
 }
 
-submit:hover{
+button:hover{
     cursor: pointer;
     opacity: 60%;
 }
 
-submit{
+button{
     border-radius: 1em;
     padding: 0.5em;
     background-color: lightgrey;
 }
 
-submit{
+button{
     color: darkgreen;
 }
