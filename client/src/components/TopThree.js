@@ -64,6 +64,7 @@ function TopThree(props){
     } catch (err) {
       console.log(`Network error: ${err.message}`);
     }
+    window.location.reload()
   }
   
   
