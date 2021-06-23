@@ -1,21 +1,22 @@
+//ALL DONE HERE! :)
 import React from "react";
 import { Route, Redirect } from "react-router-dom";
-//import Local from './helper/Local';
+import Local from '../helper/Local';
 
 
-
-function AuthenticatedRoute() {
-  /*  let userId = Local.getUserId(); //check if Local storage has user Id
-    if (!userId) {  //redirect user to login page if id is not in local storage
-        return <Redirect to="/login" />
+function AuthenticatedRoute(props) {
+    // Redirect to /login if the  user is anonymous
+    let userId = Local.getUserId();
+    if (!userId) {
+        return <Redirect to="/login" />;
     }
 
-
+    // Render <Route> containing child component(s)
     return (
         <Route exact path={props.path}>
             {props.children}
         </Route>
-    );*/
+    );
 }
 
 export default AuthenticatedRoute;

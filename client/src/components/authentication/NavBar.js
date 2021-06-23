@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 function NavBar(props) {
     return (
         <nav className="Navbar navbar navbar-expand-md navbar-dark mb-4" style={{ backgroundColor: 'teal' }}>
-            <span className="navbar-brand font-weight-bold">AuthAuth</span>
+            <span className="navbar-brand font-weight-bold"></span>
 
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>

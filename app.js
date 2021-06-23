@@ -3,7 +3,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-var authRouter = require('./routes/auth'); //authentication
+//var authRouter = require('./routes/auth'); //authentication
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
@@ -17,7 +17,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 //Routes
-app.use('/', authRouter); //authentication
+//app.use('/', authRouter); //authentication
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 

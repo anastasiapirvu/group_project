@@ -28,10 +28,10 @@ function App() {
   const [userId, setUserId] = useState(1)
   const [missingIngredients, setMissingIngredients] = useState([]);
 
-  // function setFeatId(id){
-  //   let ix = topThree.findIndex(t => (t.id ===id));
-  //   setFeatRecipe(topThree[ix]);
-  // }
+  /* function setFeatId(id){
+     let ix = topThree.findIndex(t => (t.id ===id));
+     setFeatRecipe(topThree[ix]);
+    }*/
 
   const [user, setUser] = useState(Local.getUser());
     const [loginErrorMsg, setLoginErrorMsg] = useState('');
@@ -59,7 +59,7 @@ function App() {
   <div className="App" style={{ backgroundColor: '#DDFFBC' }}>
 
     <NavBar user={user} onLogout={doLogout} />
-                  <h2>I am Hungry</h2>
+                  <h1> What's in the Fridge? </h1>
 
     <nav className="navbar navbar-expand-sm navbar-dark" style={{ backgroundColor: '#52734D' }}>
 
@@ -78,7 +78,7 @@ function App() {
             <div className="navbar-nav">
                 <a className="nav-link active" href="#">Home <span className="sr-only">(current)</span></a>
                 <a className="nav-link" href="#">Shopping List</a>
-                <a className="nav-link" href="#">Log in</a>
+
             </div>
         </div>
     </nav>
@@ -86,10 +86,9 @@ function App() {
 
     <div className="container mt-4">
 
-      <h1 className="text-center" style={{color: '#375433'}}>
-        <small class="text-muted">I'm hungry...</small>
-          What's in the Fridge?
-      </h1>
+      <h2 className="text-center" style={{color: '#375433'}}>
+         I am hungry....
+      </h2>
   
 
     </div> {/* .container */}
@@ -101,9 +100,12 @@ function App() {
 
         <TopThree userId={userId}/>
 
-        <ShoppingList userId={userId}/>
-
+       
              {/* AUTHENTICATION */}
+
+             <AuthenticationRoute path="/shoppingList" exact>
+                <ShoppingList userId={userId}/>
+             </AuthenticationRoute>
                       
              <AuthenticationRoute path="/users/:userId" exact>
                 <ProfileView /> 
@@ -126,7 +128,7 @@ function App() {
 
     <footer className="footer text-center p-3 mt-3 bg-secondary text-light">
         <img src = {logo}></img>
-        
+
         <br />
         A CodeOp Team Project by Abigail Fitzjoshua, Anastatsia Pirvu, Kat Hurdley and Holly Lyford
     </footer>
