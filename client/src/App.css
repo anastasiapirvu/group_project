@@ -1,15 +1,14 @@
-/* .App {
-  /* text-align: center; */
-  /* color: #52734D;
+.App {
+  text-align: center;
+  color: #52734D;
   background-color: #FEFFDE;
 }
 
 a {
   color: #DDFFBC;
 }
- */ 
+ 
 
 .App img {
-  width: 250px;
+  width: 200px;
 }
-

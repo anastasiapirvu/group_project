@@ -85,6 +85,23 @@ function TopThree(props){
             ))}
             </div>
 
+            <h2 className="text-center">Your Top Three Suggestions - as cards</h2>
+            <div className="row">
+                {/* Span 50% above 'sm' breakpoint, 25% above 'lg' breakpoint */}
+                {topThree.map(t => (
+                <ul className="col-sm-6 col-md-4 mb-3">
+                  <div className="card" key ={t.id} style={{ backgroundColor: '#FEFFDE' }} className="text-center">
+                  <img src={t.image}/>
+                    <div className="card-body" >
+                      <h5 className="card-title">{t.title}</h5>
+                      <p className="card-text">Missing Ingredients: {missedList(t)}</p>
+                      <a onClick={e => sortData(t)} className="btn btn-primary">Add to Shopping List</a>
+                    </div>
+                  </div>
+                </ul>
+                ))}
+            </div>
+
       </div>
 
  
