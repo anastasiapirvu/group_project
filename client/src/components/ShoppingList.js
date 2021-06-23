@@ -12,7 +12,6 @@ function ShoppingList(props) {
   }, [userId]);
 
   async function getItems(userId){
-    console.log('get items', userId)
     try{
       let response = await fetch(`/shoppingList/${userId}`);
       if (response.ok) {
@@ -26,27 +25,26 @@ function ShoppingList(props) {
     }
   }
 
-
-    function handleChange(event) {
-      let newId = event.target.value;
-      setUserId(newId)
-      getItems(newId);
-      }
+    // function handleChange(event) {
+    //   let newId = event.target.value;
+    //   setUserId(newId)
+    //   getItems(newId);
+    //   }
   
   return(
 
     <div className="ShoppingList">
     <h3>Delicious things I need...</h3>
-    <h4>For testing purposes</h4>
-    <select userId={userId} value={userId} onChange={handleChange}>
-                <option>1</option>
-                <option>2</option>
-        </select>
+    {/* <h4>For testing purposes</h4> */}
+    {/* <select userId={userId} value={userId} onChange={handleChange}>
+      <option>1</option>
+      <option>2</option>
+    </select> */}
     
     <div className = 'list'>
       <ul>
         {list.map(s =>(
-        <li>{s.name}</li>
+        <li key = {s.id}>{s.name}</li>
         )
         )}
       </ul>

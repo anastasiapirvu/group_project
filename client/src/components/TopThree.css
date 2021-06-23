@@ -1,0 +1,22 @@
+.TopThree li{
+    list-style: none;
+}
+
+button:active{
+    background-color:greenyellow
+}
+
+button:hover{
+    cursor: pointer;
+    opacity: 60%;
+}
+
+button{
+    border-radius: 1em;
+    padding: 0.5em;
+    background-color: lightgrey;
+}
+
+button{
+    color: darkgreen;
+}
