@@ -76,7 +76,7 @@ function TopThree(props){
           {topThree.map(t => (
           <ul>
           <li key ={t.id}>{t.title}.</li>
-          <li><img src={t.image}/></li>
+          <li ><img src={t.image} onClick={(e =>props.selectCb(t.id))}/></li>
           <li><p>Missing Ingredients: {missedList(t)}</p></li>
           <li><button onClick={e => sortData(t)}>Add to Shopping List</button></li>
           <br/><br/>

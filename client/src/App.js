@@ -5,6 +5,7 @@ import ShoppingList from './components/ShoppingList';
 import TopThree from './components/TopThree';
 // import Favorites from "./components/Favorites";
 import logo from './images/WhatsInTheFridgeFlat.png'
+import topThree from './components/topThreeStarter'
 
 import './App.css';
 
@@ -15,7 +16,7 @@ function App(props) {
   // const [isRecipie, setIsRecipie] = useState(false) //caution - spelling! Do we need this?
   const [userId, setUserId] = useState(1)
   const [missingIngredients, setMissingIngredients] = useState([]);
-
+  const [featRecipe, setFeatRecipe] = useState([])
 
   // const handleChangeView = (isFavorites) => {
   //   setIsFavorites(isFavorites)
@@ -24,6 +25,11 @@ function App(props) {
   // const getRecipeMethod = (id) => {
   //   console.log(id)
   // }
+
+  function setFeatId(id){
+    let ix = topThree.findIndex(t => (t.id ===id));
+    setFeatRecipe(topThree[ix]);
+  }
 
   return (
     <div className="App">
@@ -49,7 +55,7 @@ function App(props) {
     
     <IngredientSearch />
 
-    <TopThree userId={userId}/>
+    <TopThree userId={userId} selectCb={(id)=> setFeatId(id)}/>
 
     <ShoppingList userId={userId}/>
 
