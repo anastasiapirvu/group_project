@@ -57,11 +57,11 @@ router.get("/shoppingList/:id", async (req, res) => {
 
 // POST new item
 router.post("/shoppingList", async (req, res) => {
-  let { name, quantity } = req.body;
+  let { name, quantity, userId } = req.body;
 
   let sql = `
-      INSERT INTO items (name, quantity)
-      VALUES ('${name}', ${quantity})
+      INSERT INTO items (name, quantit, unit, userId)
+      VALUES ('${name}', ${quantity}, ${unit}, ${userId})
   `;
 
   try {

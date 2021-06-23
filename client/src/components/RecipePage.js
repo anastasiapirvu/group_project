@@ -2,8 +2,11 @@ import React, { useState } from 'react';
 import './RecipePage.css';
 
 
-function RecipePage (){
+function RecipePage (props){
   //props - recieve ID of featured recipe
+
+  let r = props.recipe
+
     async function pause(ms) {
       return new Promise(resolve => setTimeout(resolve, ms));
     }
@@ -34,12 +37,15 @@ function RecipePage (){
 
     return (
       <div className="RecipePage">
-      <h2>Recipe name</h2>
-  
-     </div>
-        )
+      <h2>Featured Recipe</h2>
+           
+        
 
-    }        
+
+        </div>
+    );
+}
+        
 
 
 export default RecipePage;

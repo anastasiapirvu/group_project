@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './IngredientSearch.css';
 
 function IngredientSearch() {
@@ -13,14 +13,14 @@ const [searchInput, setSearchInput] = useState("");
 // State for getting recipes from API
 const [searchResult, setSearchResult] = useState([]);
 
-// State that only submits itself after clicking the search button
-const [query, setQuery] = useState("");
+
+const [featRecipe, setFeatRecipe] = useState(null);
 
 
 const [loading, setLoading] = useState(false);
 const [error, setError] = useState("");
 
-const [featRecipe, setFeatRecipe] = useState(null);
+
 
 
   async function pause(ms) {
@@ -29,7 +29,7 @@ const [featRecipe, setFeatRecipe] = useState(null);
 
   async function getRecipes(ingredients){
     setLoading(true);
-    setSearchResult(null);
+    // setSearchResult(null);
     setError("");
 
     let URL = `${baseURL}/findByIngredients?ingredients=${ingredients}&number=3&ranking=1&ignorePantry=true&apiKey=${API_KEY}`
@@ -51,9 +51,8 @@ const [featRecipe, setFeatRecipe] = useState(null);
     setLoading(false)
   }
 
-
+  
   function handleSubmit(event) {
-    console.log("my search in handleSubmit is "+searchInput)
     event.preventDefault();
     getRecipes(searchInput);
     setSearchInput("");
@@ -62,27 +61,41 @@ const [featRecipe, setFeatRecipe] = useState(null);
 
   return (
     <>
-    <div className="IngredientSearch">
-    <form>
-      <input 
-      type="text" 
-      placeholder="What's in my fridge..."
+        <div className="IngredientSearch">
+            {/* Starting from 'md' breakpoint, leave 3 empty cols to left of form spanning 6 cols */}
+            <div className="offset-md-3 col-md-6">
+                <form onSubmit={handleSubmit} className="form-inline my-2 my-lg-0">
+                    <div className="search-group">
+                        <label htmlFor="exampleInputEmail1"></label>
+                        <input
+                          type="text"
+                          className="form-control"
+                          id="exampleInputEmail1" 
+                          aria-describedby="emailHelp"
+                          placeholder="What's in my fridge..."
+                          value={searchInput}
+                          onChange={input => {
+                            setSearchInput(input.target.value);
+                          }}
+                        /> 
+                        <small className="form-text text-muted">Do not include spaces after commas: e.g. Banana,Chocolate,Almonds</small>
+                    </div>
 
-      onSubmit={handleSubmit}
+                    <button type="submit" className="btn btn-primary mr-2">Get Recipe</button>
+                </form>
+            </div>
+        </div>
       
-      onChange={
-        (input) => {
-          setSearchInput(input.target.value)
-          
-        }
-      }
-    />
-        <button type="submit">Search</button>
-      </form>
-    </div>
     {loading && <h3>LOADING...</h3>}
     {error && <h3 style={{ color: "red"}}>{error}</h3>}
-    {/* {searchResult.map => (r) */}
+
+    {searchResult && searchResult.map(recipe =>(
+    <div key={recipe.id}>
+    {recipe.title} ({recipe.missedIngredientCount})
+    <img src={recipe.image}/>
+  </div>
+
+    ))}
 
     </>
   );
