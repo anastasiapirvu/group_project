@@ -18,10 +18,10 @@ function App(props) {
   const [userId, setUserId] = useState(1)
   const [missingIngredients, setMissingIngredients] = useState([]);
 
-  function setFeatId(id){
-    let ix = topThree.findIndex(t => (t.id ===id));
-    setFeatRecipe(topThree[ix]);
-  }
+  // function setFeatId(id){
+  //   let ix = topThree.findIndex(t => (t.id ===id));
+  //   setFeatRecipe(topThree[ix]);
+  // }
   
   return (
 
