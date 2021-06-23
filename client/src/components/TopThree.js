@@ -72,17 +72,18 @@ function TopThree(props){
 
           {/* {featRecipe && <RecipePage featRecipe ={featRecipe}/>} */}
 
-          <h2>Your Top Three Suggestions</h2>
-          {topThree.map(t => (
-          <ul>
-          <li key ={t.id}>{t.title}.</li>
-          <li><img src={t.image}/></li>
-          <li><p>Missing Ingredients: {missedList(t)}</p></li>
-          <li><button onClick={e => sortData(t)}>Add to Shopping List</button></li>
-          <br/><br/>
-          </ul>
-        ))}
-        
+          <h2 className="text-center">Your Top Three Suggestions</h2>
+            <div className="row text-center">
+              {topThree.map(t => (
+              <ul className="col-sm-6 col-md-4 mb-3">
+                <li key ={t.id}>{t.title}.</li>
+                <li><img src={t.image}/></li>
+                <li><p>Missing Ingredients: {missedList(t)}</p></li>
+                <li><button onClick={e => sortData(t)}>Add to Shopping List</button></li>
+              <br/><br/>
+              </ul>
+            ))}
+            </div>
 
       </div>
 

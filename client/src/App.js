@@ -23,7 +23,7 @@ function App(props) {
     <nav className="navbar navbar-expand-sm navbar-dark" style={{ backgroundColor: '#52734D' }}>
 
         {/* "Brand"/Logo */}
-        <a className="navbar-brand" href="#">CodeOp</a>
+        <a className="navbar-brand" href="#">I am Hungry</a>
 
         {/* Hamburger Icon */}
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -44,34 +44,7 @@ function App(props) {
     <div className="container mt-4">
 
         <h1 className="text-center">Hello!</h1>
-
-
-
-        <h2>A Simple Grid</h2>
-        <div className="row text-center">
-            {/* Occupy 6 grid cols at 'sm' breakpoint, 4 grid cols at 'md' breakpoint. Add a bottom margin */}
-            <div className="col-sm-6 col-md-4 mb-3">
-                <h3>Column 1</h3>
-                Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe. Quo quibusdam et aut officiis debitis aut rerum necessitatibus saepe.
-            </div>
-
-            <div className="col-sm-6 col-md-4 mb-3">
-                <h3>Column 2</h3>
-                Lsdkjf temporibus autem quibusdam et aut debitis aut rerum.
-            </div>
-
-            <div className="col-sm-6 col-md-4 mb-3">
-                <h3>Column 3</h3>
-                Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe.Mofficiis debitis aut rerum necessitatibus.
-            </div>
-        </div>
-
-
-
-       
-
-
-
+  
         <h2>A Grid of Cards</h2>
             <div className="row">
                 {/* Span 50% above 'sm' breakpoint, 25% above 'lg' breakpoint */}

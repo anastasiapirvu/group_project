@@ -61,7 +61,6 @@ const [error, setError] = useState("");
 
   return (
     <>
-     <h2>A Simple Form</h2>
         <div className="IngredientSearch">
             {/* Starting from 'md' breakpoint, leave 3 empty cols to left of form spanning 6 cols */}
             <div className="offset-md-3 col-md-6">
@@ -86,20 +85,6 @@ const [error, setError] = useState("");
                 </form>
             </div>
         </div>
-
-   {/* <div className="IngredientSearch">
-        <form onSubmit={handleSubmit}>
-          <input
-            type="text"
-            placeholder="What's in my fridge..."
-            value={searchInput}
-            onChange={input => {
-              setSearchInput(input.target.value);
-            }}
-          />
-          <button type="submit">Get Recipe</button>
-        </form>
-      </div> */}
       
     {loading && <h3>LOADING...</h3>}
     {error && <h3 style={{ color: "red"}}>{error}</h3>}
