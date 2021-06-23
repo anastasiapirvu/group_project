@@ -14,6 +14,7 @@ function App(props) {
   const [isFavorites, setIsFavorites] = useState(true)
   // const [isRecipie, setIsRecipie] = useState(false) //caution - spelling! Do we need this?
   const [userId, setUserId] = useState(1)
+  const [missingIngredients, setMissingIngredients] = useState([]);
 
 
   // const handleChangeView = (isFavorites) => {
@@ -48,7 +49,7 @@ function App(props) {
     
     <IngredientSearch />
 
-    <TopThree />
+    <TopThree userId={userId}/>
 
     <ShoppingList userId={userId}/>
 

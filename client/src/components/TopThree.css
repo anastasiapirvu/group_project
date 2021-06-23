@@ -1,0 +1,22 @@
+.TopThree li{
+    list-style: none;
+}
+
+submit:active{
+    background-color:greenyellow
+}
+
+submit:hover{
+    cursor: pointer;
+    opacity: 60%;
+}
+
+submit{
+    border-radius: 1em;
+    padding: 0.5em;
+    background-color: lightgrey;
+}
+
+submit{
+    color: darkgreen;
+}
