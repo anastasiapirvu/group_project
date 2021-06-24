@@ -1,10 +1,13 @@
 // import React from "react";
 
+
+
 // function Routes(props) {
 //   return (
 //     <Switch>
 //     //Home route
 //     <Route path="/" exact>
+//       <App />
 //     </Route>
 
 //     //Shopping List route
@@ -22,4 +25,4 @@
 
 // }
 
-// export default Routes;
+// export default Routes; 

@@ -99,8 +99,6 @@ const [error, setError] = useState("");
     
     {searchResult &&<TopThree userId = {props.userId} topThree={searchResult}/>}
 
-    
-
     </>
   );
 };
