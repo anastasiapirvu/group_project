@@ -98,7 +98,7 @@ function TopThree(props){
                 <ul className="col-sm-6 col-md-4 mb-3">
                   <div className="card" key ={t.id} style={{ backgroundColor: '#FEFFDE' }} className="text-center">
                   <img src={t.image}/><br/>
-                  <a onClick={e => props.setFeatCb(t)} className="btn btn-primary">View Recipe</a>
+                  <a onClick={e => props.setFeatCb(t)} className="btn btn-primary">More Information</a>
                     <div className="card-body" >
                       <h5 className="card-title">{t.title}</h5>
                       <p className="card-text">Missing Ingredients: {missedList(t)}</p>
