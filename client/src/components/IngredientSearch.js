@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './IngredientSearch.css';
+import TopThree from './TopThree'
 
-function IngredientSearch() {
+function IngredientSearch(props) {
 
 const API_KEY = process.env.REACT_APP_API_KEY;
 const baseURL = "https://api.spoonacular.com/recipes"  
@@ -29,7 +30,7 @@ const [error, setError] = useState("");
 
   async function getRecipes(ingredients){
     setLoading(true);
-    // setSearchResult(null);
+    setSearchResult(null);
     setError("");
 
     let URL = `${baseURL}/findByIngredients?ingredients=${ingredients}&number=3&ranking=1&ignorePantry=true&apiKey=${API_KEY}`
@@ -89,13 +90,15 @@ const [error, setError] = useState("");
     {loading && <h3>LOADING...</h3>}
     {error && <h3 style={{ color: "red"}}>{error}</h3>}
 
-    {searchResult && searchResult.map(recipe =>(
+    {/* {searchResult && searchResult.map(recipe =>(
     <div key={recipe.id}>
     {recipe.title} ({recipe.missedIngredientCount})
-    <img src={recipe.image}/>
-  </div>
+    <img src={recipe.image}/> */}
+    {/* ))} */}
+    
+    {searchResult &&<TopThree userId = {props.userId} topThree={searchResult}/>}
 
-    ))}
+    
 
     </>
   );

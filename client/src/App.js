@@ -5,7 +5,6 @@ import ShoppingList from './components/ShoppingList';
 import TopThree from './components/TopThree';
 // import Favorites from "./components/Favorites";
 import logo from './images/WhatsInTheFridgeFlat.png'
-import topThree from './components/topThreeStarter'
 import veg from './images/Vegetables.jpg'
 import './App.css';
 
@@ -97,9 +96,8 @@ function App() {
     <div className="container">
       <Switch>
     
-        <IngredientSearch />
+        <IngredientSearch userId = {userId}/>
 
-        <TopThree userId={userId}/>
 
        
              {/* AUTHENTICATION */}
@@ -138,7 +136,6 @@ function App() {
    
   );
 
- 
   
 }
 
