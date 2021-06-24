@@ -45,6 +45,7 @@ const [error, setError] = useState("");
       if(response.ok) {
         let data = await response.json();
         setSearchResult(data);
+        props.setMyTopSuggestions(data);
       } else {
         setError(`Server Error: ${response.status} ${response.statusText}`)
       }
@@ -130,8 +131,6 @@ const [error, setError] = useState("");
     
     {recipe.missedIngredients && <RecipePage recipe={recipe}/>}
     {searchResult && <TopThree userId = {props.userId} topThree={searchResult} setFeatCb = {(recipe => setRecipe(recipe))}/>}
-
-    
 
     </>
   );

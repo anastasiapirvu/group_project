@@ -7,11 +7,13 @@ import RecipePage from './RecipePage'
 
 
 
-function TopThree(props){
 
-  // const [topThree, setTopThree] = useState(props.searchResults); //needs to take from IngrediendSearch
+function TopThree( {userId, topThree}){
+ 
+  //const [topThree, setTopThree] = useState(starterData); //needs to take from IngrediendSearch
   const [items, setItems] = useState([])
   const [featId, setFeatId] = useState([])
+
 
   function missedList(recipe){
     let missed = [];
@@ -40,7 +42,8 @@ function TopThree(props){
       ingredient['name'] = ing.name;
       ingredient['quantity'] = ing.amount;
       ingredient['unit'] = ing.unit;
-      ingredient['user_id'] = props.userId;
+       ingredient['user_id'] = userId; // it was complaining that props(before userId) was not defined, 
+      //so I tried to remove it and everything works (not sure why though!)
       addItem(ingredient)
     }
   }
@@ -91,7 +94,7 @@ function TopThree(props){
             <h2 className="text-center">Your Top Three Suggestions</h2>
             <div className="row">
                 {/* Span 50% above 'sm' breakpoint, 25% above 'lg' breakpoint */}
-                {props.topThree.map(t => (
+                {topThree.map(t => (
                 <ul className="col-sm-6 col-md-4 mb-3">
                   <div className="card" key ={t.id} style={{ backgroundColor: '#FEFFDE' }} className="text-center">
                   <img src={t.image}/><br/>

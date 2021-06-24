@@ -4,8 +4,6 @@ import './RecipePage.css';
 
 function RecipePage (props){
 
-const API_KEY = process.env.REACT_APP_API_KEY;
-const baseURL = "https://api.spoonacular.com/recipes"  
 
 const [loading, setLoading] = useState(false);
 const [error, setError] = useState("");
@@ -48,6 +46,7 @@ const [error, setError] = useState("");
 
     return (
 
+
        <div className="RecipePage">
 
       <ul className="col-sm-6 col-md-4 mb-3">      
@@ -78,6 +77,7 @@ const [error, setError] = useState("");
         </div>
     )
     }
+
 
 
 export default RecipePage;
