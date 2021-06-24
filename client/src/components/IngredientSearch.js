@@ -43,6 +43,7 @@ const [error, setError] = useState("");
       if(response.ok) {
         let data = await response.json();
         setSearchResult(data);
+        props.setMyTopSuggestions(data);
       } else {
         setError(`Server Error: ${response.status} ${response.statusText}`)
       }
@@ -97,8 +98,6 @@ const [error, setError] = useState("");
     {/* ))} */}
     
     {searchResult &&<TopThree userId = {props.userId} topThree={searchResult}/>}
-
-    
 
     </>
   );

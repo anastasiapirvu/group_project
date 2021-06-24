@@ -9,7 +9,7 @@ import veg from './images/Vegetables.jpg'
 import './App.css';
 
 //authentication
-import { Switch, Route, useHistory } from 'react-router-dom';
+import { BrowserRouter as Router, Link, Switch, Route, useHistory } from 'react-router-dom';
 import Local from './components/helper/Local';
 import Api from './components/helper/Api';
 import NavBar from './components/authentication/NavBar';
@@ -18,6 +18,7 @@ import AuthenticationRoute from './components/authentication/AuthenticationRoute
 import UserLogin from './components/authentication/UserLogin';
 import ProfileView from './components/authentication/ProfileView';
 import MembersOnlyView from './components/authentication/MembersOnlyView';
+// import Routes from './components/Routes';
 
 function App() {
 
@@ -26,6 +27,7 @@ function App() {
   // const [isRecipie, setIsRecipie] = useState(false) //caution - spelling! Do we need this?
   const [userId, setUserId] = useState(1)
   const [missingIngredients, setMissingIngredients] = useState([]);
+  const [topSuggestions, setTopSuggestions] = useState([]);
 
 
   /* function setFeatId(id){
@@ -58,7 +60,7 @@ function App() {
 
   <div className="App" style={{ backgroundColor: '#DDFFBC' }}>
 
-    <NavBar user={user} onLogout={doLogout} />
+    {/* <NavBar user={user} onLogoshut={doLogout} /> */}
                   <h1> What's in the Fridge? </h1>
 
     <nav className="navbar navbar-expand-sm navbar-dark" style={{ backgroundColor: '#52734D' }}>
@@ -96,10 +98,11 @@ function App() {
     <div className="container">
       <Switch>
     
-        <IngredientSearch userId = {userId}/>
+        <IngredientSearch setMyTopSuggestions={setTopSuggestions} userId = {userId}/>
+
+        <TopThree userId={userId} topThree={topSuggestions}/>
 
 
-       
              {/* AUTHENTICATION */}
 
              <AuthenticationRoute path="/shoppingList" exact>
@@ -129,7 +132,7 @@ function App() {
         <img src = {logo}></img>
 
         <br />
-        A CodeOp Team Project by Abigail Fitzjoshua, Anastatsia Pirvu, Kat Hurdley and Holly Lyford
+        A CodeOp Team Project by Abigail Fitzjoshua, Anastasia Pirvu, Kat Hurdley and Holly Lyford
     </footer>
 
     </div>

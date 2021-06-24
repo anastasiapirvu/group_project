@@ -5,7 +5,8 @@ import './RecipePage.css';
 function RecipePage (props){
   //props - recieve ID of featured recipe
 
-  let r = props.recipe
+  const [featRecipe, setFeatRecipe] = useState(starterData);
+
 
     async function pause(ms) {
       return new Promise(resolve => setTimeout(resolve, ms));
@@ -36,13 +37,14 @@ function RecipePage (props){
         }
 
     return (
+      <>
       <div className="RecipePage">
       <h2>Featured Recipe</h2>
-           
-        
-
+          
 
         </div>
+    
+        </>
     );
 }
         
