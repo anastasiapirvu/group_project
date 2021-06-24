@@ -8,7 +8,7 @@ import starterData from './topThreeStarter.js'
 
 function TopThree(props){
 
-  const [topThree, setTopThree] = useState(starterData); //needs to take from IngrediendSearch
+  // const [topThree, setTopThree] = useState(props.searchResults); //needs to take from IngrediendSearch
   const [items, setItems] = useState([])
 
   function missedList(recipe){
@@ -89,7 +89,7 @@ function TopThree(props){
             <h2 className="text-center">Your Top Three Suggestions</h2>
             <div className="row">
                 {/* Span 50% above 'sm' breakpoint, 25% above 'lg' breakpoint */}
-                {topThree.map(t => (
+                {props.topThree.map(t => (
                 <ul className="col-sm-6 col-md-4 mb-3">
                   <div className="card" key ={t.id} style={{ backgroundColor: '#FEFFDE' }} className="text-center">
                   <img src={t.image}/>
