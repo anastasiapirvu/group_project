@@ -6,6 +6,7 @@ import TopThree from './components/TopThree';
 // import Favorites from "./components/Favorites";
 import logo from './images/WhatsInTheFridgeFlat.png'
 import veg from './images/Vegetables.jpg'
+import RecipePage from './components/RecipePage'
 import './App.css';
 
 //authentication
@@ -26,6 +27,7 @@ function App() {
   // const [isRecipie, setIsRecipie] = useState(false) //caution - spelling! Do we need this?
   const [userId, setUserId] = useState(1)
   const [missingIngredients, setMissingIngredients] = useState([]);
+  const [featRecipe, setFeatRecipe] = useState([]);
 
 
   /* function setFeatId(id){
@@ -96,7 +98,8 @@ function App() {
     <div className="container">
       <Switch>
     
-        <IngredientSearch userId = {userId}/>
+        {featRecipe && <RecipePage featRecipe ={featRecipe}/>}
+        <IngredientSearch userId = {userId} setFeatCb={(feat) => setFeatRecipe(feat)}/>
 
 
        

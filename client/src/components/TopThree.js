@@ -71,7 +71,7 @@ function TopThree(props){
     return (
         <div className="TopThree">
 
-          {/* {featRecipe && <RecipePage featRecipe ={featRecipe}/>} */}
+  
 
           {/* <h2 className="text-center">Your Top Three Suggestions</h2>
             <div className="row text-center">
@@ -92,7 +92,8 @@ function TopThree(props){
                 {props.topThree.map(t => (
                 <ul className="col-sm-6 col-md-4 mb-3">
                   <div className="card" key ={t.id} style={{ backgroundColor: '#FEFFDE' }} className="text-center">
-                  <img src={t.image}/>
+                  <img src={t.image}/><br/>
+                  <a onClick={e => props.setFeatCb(t)} className="btn btn-primary">View Recipe</a>
                     <div className="card-body" >
                       <h5 className="card-title">{t.title}</h5>
                       <p className="card-text">Missing Ingredients: {missedList(t)}</p>

@@ -95,8 +95,8 @@ const [error, setError] = useState("");
     {recipe.title} ({recipe.missedIngredientCount})
     <img src={recipe.image}/> */}
     {/* ))} */}
-    
-    {searchResult &&<TopThree userId = {props.userId} topThree={searchResult}/>}
+
+    {searchResult &&<TopThree userId = {props.userId} topThree={searchResult} setFeatCb = {(feat => props.setFeatCb(feat))}/>}
 
     
 
