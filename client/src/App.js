@@ -98,9 +98,8 @@ function App() {
     <div className="container">
       <Switch>
     
-        <IngredientSearch setMyTopSuggestions={setTopSuggestions} userId = {userId}/>
-
-        <TopThree userId={userId} topThree={topSuggestions}/>
+        <IngredientSearch userId = {userId}/>
+        <ShoppingList userId = {userId}/>
 
 
              {/* AUTHENTICATION */}
