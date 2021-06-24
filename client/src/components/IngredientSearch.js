@@ -43,6 +43,7 @@ const [error, setError] = useState("");
       if(response.ok) {
         let data = await response.json();
         setSearchResult(data);
+        props.setMyTopSuggestions(data);
       } else {
         setError(`Server Error: ${response.status} ${response.statusText}`)
       }

@@ -5,8 +5,6 @@ import './RecipePage.css';
 function RecipePage (props){
   //props - recieve ID of featured recipe
 
-  let r = props.recipe
-
     async function pause(ms) {
       return new Promise(resolve => setTimeout(resolve, ms));
     }
@@ -36,6 +34,7 @@ function RecipePage (props){
         }
 
     return (
+      <>
       <div className="RecipePage">
       <h2>Featured Recipe</h2>
            
@@ -43,6 +42,23 @@ function RecipePage (props){
 
 
         </div>
+        <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title></Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <ProductDisplay products={products} />
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+          <Button variant="success" name="" onClick={resetTotal}>
+            Checkout
+          </Button>
+        </Modal.Footer>
+      </Modal>
+        </>
     );
 }
         

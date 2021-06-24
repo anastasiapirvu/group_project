@@ -6,9 +6,9 @@ import starterData from './topThreeStarter.js'
 
 
 
-function TopThree(props){
-
-  // const [topThree, setTopThree] = useState(props.searchResults); //needs to take from IngrediendSearch
+function TopThree( {userId, topThree}){
+ 
+  //const [topThree, setTopThree] = useState(starterData); //needs to take from IngrediendSearch
   const [items, setItems] = useState([])
 
   function missedList(recipe){
@@ -38,7 +38,8 @@ function TopThree(props){
       ingredient['name'] = ing.name;
       ingredient['quantity'] = ing.amount;
       ingredient['unit'] = ing.unit;
-      ingredient['user_id'] = props.userId;
+      ingredient['user_id'] = userId; // it was complaining that props(before userId) was not defined, 
+      //so I tried to remove it and everything works (not sure why though!)
       addItem(ingredient)
     }
   }
