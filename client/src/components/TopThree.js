@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './TopThree.css';
 import starterData from './topThreeStarter.js'
+import RecipePage from './RecipePage'
 // import RecipePage from './RecipePage'
 
 
@@ -10,6 +11,7 @@ function TopThree(props){
 
   // const [topThree, setTopThree] = useState(props.searchResults); //needs to take from IngrediendSearch
   const [items, setItems] = useState([])
+  const [featId, setFeatId] = useState([])
 
   function missedList(recipe){
     let missed = [];

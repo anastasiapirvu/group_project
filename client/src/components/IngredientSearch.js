@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import './IngredientSearch.css';
 import TopThree from './TopThree'
+import RecipePage from './RecipePage'
+
 
 function IngredientSearch(props) {
 
@@ -15,7 +17,7 @@ const [searchInput, setSearchInput] = useState("");
 const [searchResult, setSearchResult] = useState([]);
 
 
-const [featRecipe, setFeatRecipe] = useState(null);
+const [recipe, setRecipe] = useState([]);
 
 
 const [loading, setLoading] = useState(false);
@@ -51,6 +53,36 @@ const [error, setError] = useState("");
     }
     setLoading(false)
   }
+
+  async function pause(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
+
+
+  // async function getRecipeSummary(id){
+  //       setLoading(true);
+  //       setError("");
+    
+  //       let URL = `${baseURL}/${id}/summary?apiKey=${API_KEY}`;
+  //       console.log(URL)
+  //       await pause(500);
+    
+  //       try{
+  //         let response = await fetch(URL);
+  //         console.log(response.json);
+  //         if(response.ok) {
+  //           let data = await response.json();
+  //           setRecipeSummary(data)
+  //           console.log('test');
+  //         } else {
+  //           setError(`Server Error: ${response.status} ${response.statusText}`)
+  //         }
+  //       } catch (err) {
+  //         setError(`Network err: ${err.message}`);
+  //       }
+  //       setLoading(false)
+  //     }
+
 
   
   function handleSubmit(event) {
@@ -95,8 +127,9 @@ const [error, setError] = useState("");
     {recipe.title} ({recipe.missedIngredientCount})
     <img src={recipe.image}/> */}
     {/* ))} */}
-
-    {searchResult &&<TopThree userId = {props.userId} topThree={searchResult} setFeatCb = {(feat => props.setFeatCb(feat))}/>}
+    
+    {recipe.missedIngredients && <RecipePage recipe={recipe}/>}
+    {searchResult && <TopThree userId = {props.userId} topThree={searchResult} setFeatCb = {(recipe => setRecipe(recipe))}/>}
 
     
 
