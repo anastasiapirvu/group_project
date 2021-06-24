@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './TopThree.css';
 import starterData from './topThreeStarter.js'
+import RecipePage from './RecipePage'
 // import RecipePage from './RecipePage'
 
 
@@ -11,6 +12,7 @@ function TopThree( {userId, topThree}){
  
   //const [topThree, setTopThree] = useState(starterData); //needs to take from IngrediendSearch
   const [items, setItems] = useState([])
+  const [featId, setFeatId] = useState([])
 
 
   function missedList(recipe){
@@ -74,7 +76,7 @@ function TopThree( {userId, topThree}){
     return (
         <div className="TopThree">
 
-          {/* {featRecipe && <RecipePage featRecipe ={featRecipe}/>} */}
+  
 
           {/* <h2 className="text-center">Your Top Three Suggestions</h2>
             <div className="row text-center">
@@ -95,7 +97,8 @@ function TopThree( {userId, topThree}){
                 {topThree.map(t => (
                 <ul className="col-sm-6 col-md-4 mb-3">
                   <div className="card" key ={t.id} style={{ backgroundColor: '#FEFFDE' }} className="text-center">
-                  <img src={t.image}/>
+                  <img src={t.image}/><br/>
+                  <a onClick={e => props.setFeatCb(t)} className="btn btn-primary">View Recipe</a>
                     <div className="card-body" >
                       <h5 className="card-title">{t.title}</h5>
                       <p className="card-text">Missing Ingredients: {missedList(t)}</p>
