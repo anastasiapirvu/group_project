@@ -139,13 +139,13 @@ function App() {
                         <MembersOnlyView />
                     </AuthenticationRoute>
 
-              <Route path="/login" exact>
+              {/* <Route path="/login" exact>
                               <UserLogin 
                                   onSubmit={(u, p) => doLogin(u, p)} 
                                   error={loginErrorMsg} 
                               />
-                          </Route>
-                  <ErrorPage code="404" text="Page not found" />
+                          </Route> */}
+                  {/* <ErrorPage code="404" text="Page not found" /> */}
 
       </div>
       <footer className="footer text-center p-3 mt-3 bg-secondary text-light">
