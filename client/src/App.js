@@ -59,6 +59,13 @@ function App() {
     history.push("/");
   }
 
+  const [featRecipe, setFeatRecipe] = useState()
+
+  function setFeatId(id){
+    let ix = topThree.findIndex(t => (t.id ===id));
+    setFeatRecipe(topThree[ix]);
+  }
+  
   return (
     <div className="App" style={{ backgroundColor: "#DDFFBC" }}>
       {/* <NavBar user={user} onLogoshut={doLogout} /> */}
