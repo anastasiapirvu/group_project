@@ -111,7 +111,6 @@ const [error, setError] = useState("");
                             setSearchInput(input.target.value);
                           }}
                         /> 
-                        <small className="form-text text-muted">Do not include spaces after commas: e.g. Banana,Chocolate,Almonds</small>
                     </div>
 
                     <button type="submit" className="btn btn-primary mr-2">Get Recipe</button>

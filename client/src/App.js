@@ -64,7 +64,6 @@ function App() {
   return (
     <div className="App" style={{ backgroundColor: "#DDFFBC" }}>
       {/* <NavBar user={user} onLogoshut={doLogout} /> */}
-      <h1> What's in the Fridge? </h1>
       <nav
         className="navbar navbar-expand-sm navbar-dark"
         style={{ backgroundColor: "#52734D" }}
@@ -106,9 +105,10 @@ function App() {
         </div>
       </nav>
       <div className="container mt-4">
-        <h2 className="text-center" style={{ color: "#375433" }}>
-          I am hungry....
-        </h2>
+        <h1 className="text-center" style={{color: '#375433'}}>
+          <small class="text-muted">I'm hungry...</small>
+            What's in the Fridge?
+        </h1>
       </div>{" "}
       {/* .container */}
       <div className="container">
@@ -123,7 +123,7 @@ function App() {
               setMyTopSuggestions={setTopSuggestions}
               userId={userId}
             />
-            <TopThree userId={userId} topThree={topSuggestions} setItems={setShoppingList}/>
+            {/* <TopThree userId={userId} topThree={topSuggestions} setItems={setShoppingList}/> */}
           </Route>
         </Switch>
 
