@@ -19,10 +19,11 @@ import {
 import Local from "./components/helper/Local";
 import Api from "./components/helper/Api";
 //import NavBar from "./components/authentication/NavBar";
-import ErrorPage from "./components/authentication/ErrorPage";
+//import ErrorPage from "./components/authentication/ErrorPage";
 import AuthenticationRoute from "./components/authentication/AuthenticationRoute";
 import UserLogin from "./components/authentication/UserLogin";
 import ProfileView from "./components/authentication/ProfileView";
+import UsersView from "./components/authentication/UsersView";
 import MembersOnlyView from "./components/authentication/MembersOnlyView";
 
 function App() {
@@ -117,7 +118,7 @@ function App() {
           <Route path="/shopping-list">
             <ShoppingList userId={userId} items={shoppingList}/>
           </Route>
-          <Route path="/login" component={UserLogin} />
+         { /* <Route path="/login" component={UserLogin} />*/}
 
           <Route path="/">
             <IngredientSearch
@@ -131,7 +132,7 @@ function App() {
         {/* AUTHENTICATION */}
 
         <AuthenticationRoute path="/shoppingList" exact>
-                <ShoppingList userId={userId}/>
+                {/*<ShoppingList userId={userId}/>*/}
              </AuthenticationRoute>
                       
              <AuthenticationRoute path="/users/:userId" exact>
@@ -146,12 +147,12 @@ function App() {
                         <MembersOnlyView />
                     </AuthenticationRoute>
 
-              {/* <Route path="/login" exact>
+              { <Route path="/login" exact>
                               <UserLogin 
                                   onSubmit={(u, p) => doLogin(u, p)} 
                                   error={loginErrorMsg} 
                               />
-                          </Route> */}
+                          </Route> }
                   {/* <ErrorPage code="404" text="Page not found" /> */}
 
       </div>

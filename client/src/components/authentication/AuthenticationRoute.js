@@ -4,7 +4,7 @@ import { Route, Redirect } from "react-router-dom";
 import Local from '../helper/Local';
 
 
-function AuthenticatedRoute(props) {
+function AuthenticationRoute(props) {
     // Redirect to /login if the  user is anonymous
     // let userId = Local.getUserId();
     // if (!userId) {
@@ -19,4 +19,4 @@ function AuthenticatedRoute(props) {
     );
 }
 
-export default AuthenticatedRoute;
+export default AuthenticationRoute;
