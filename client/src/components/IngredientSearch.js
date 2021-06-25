@@ -17,7 +17,7 @@ const [searchInput, setSearchInput] = useState("");
 const [searchResult, setSearchResult] = useState([]);
 
 
-const [recipe, setRecipe] = useState([]);
+const [recipe, setRecipe] = useState(null);
 
 
 const [loading, setLoading] = useState(false);
@@ -56,6 +56,31 @@ const [error, setError] = useState("");
 
   async function pause(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
+  }
+
+  async function getRecipeMethod(id){
+    console.log(id)
+    setLoading(true);
+    setError("");
+    setRecipe(null);
+
+    let URL = `${baseURL}/${id}/information?includeNutrition=false&apiKey=${API_KEY}&includeinstruction=true`;
+    console.log(URL)
+    await pause(500);
+
+    try{
+      let response = await fetch(URL);
+      console.log(response.json);
+      if(response.ok) {
+        let data = await response.json();
+        setRecipe(data);
+      } else {
+        setError(`Server Error: ${response.status} ${response.statusText}`)
+      }
+    } catch (err) {
+      setError(`Network err: ${err.message}`);
+    }
+    setLoading(false)
   }
 
 
@@ -113,7 +138,7 @@ const [error, setError] = useState("");
                         /> 
                     </div>
 
-                    <button type="submit" className="btn btn-primary mr-2">Get Recipe</button>
+                    <button type="submit" className="btn btn-primary mr-2">Get recipes</button>
                 </form>
             </div>
         </div>
@@ -127,8 +152,8 @@ const [error, setError] = useState("");
     <img src={recipe.image}/> */}
     {/* ))} */}
     
-    {recipe.missedIngredients && <RecipePage recipe={recipe}/>}
-    {searchResult && <TopThree userId = {props.userId} topThree={searchResult} setFeatCb = {(recipe => setRecipe(recipe))}/>}
+    {recipe && <RecipePage recipe={recipe}/>}
+    {searchResult && <TopThree userId = {props.userId} topThree={searchResult} setFeatCb = {(recipeId => getRecipeMethod(recipeId))}/>}
 
     </>
   );
