@@ -33,11 +33,6 @@ function App() {
   const [topSuggestions, setTopSuggestions] = useState([]);
   const [shoppingList, setShoppingList] = useState([]);
 
-  /* function setFeatId(id){
-     let ix = topThree.findIndex(t => (t.id ===id));
-     setFeatRecipe(topThree[ix]);
-    }*/
-
   const [user, setUser] = useState(Local.getUser());
   const [loginErrorMsg, setLoginErrorMsg] = useState("");
   const history = useHistory();
@@ -61,10 +56,10 @@ function App() {
 
   const [featRecipe, setFeatRecipe] = useState()
 
-  function setFeatId(id){
-    let ix = topThree.findIndex(t => (t.id ===id));
-    setFeatRecipe(topThree[ix]);
-  }
+  // function setFeatId(id){
+  //   let ix = topThree.findIndex(t => (t.id ===id));
+  //   setFeatRecipe(topThree[ix]);
+  // }
   
   return (
     <div className="App" style={{ backgroundColor: "#DDFFBC" }}>
