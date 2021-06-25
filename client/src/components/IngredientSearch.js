@@ -122,14 +122,14 @@ const [error, setError] = useState("");
         <div className="IngredientSearch">
             {/* Starting from 'md' breakpoint, leave 3 empty cols to left of form spanning 6 cols */}
             <div className="offset-md-3 col-md-6">
-                <form onSubmit={handleSubmit} className="form-inline my-2 my-lg-0">
+                <form onSubmit={handleSubmit} className="form-inline my-2 my-lg-0" className="text-center">
                     <div className="search-group">
-                        <label htmlFor="exampleInputEmail1"></label>
+                        <label htmlFor="inTheFridge"></label>
                         <input
                           type="text"
                           className="form-control"
-                          id="exampleInputEmail1" 
-                          aria-describedby="emailHelp"
+                          id="inTheFridge" 
+                          aria-describedby="inTheFridge"
                           placeholder="What's in my fridge..."
                           value={searchInput}
                           onChange={input => {
@@ -138,11 +138,11 @@ const [error, setError] = useState("");
                         /> 
                     </div>
 
-                    <button type="submit" className="btn btn-primary mr-2">Get recipes</button>
+                    <button type="submit" className="btn btn-secondary btn-block">Get recipes</button>
                 </form>
             </div>
         </div>
-      
+      <br />
     {loading && <h3>LOADING...</h3>}
     {error && <h3 style={{ color: "red"}}>{error}</h3>}
 
