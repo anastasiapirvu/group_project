@@ -1,34 +1,37 @@
-
 import React, { useState } from "react";
-import IngredientSearch from './components/IngredientSearch';
-import ShoppingList from './components/ShoppingList';
-import TopThree from './components/TopThree';
+import IngredientSearch from "./components/IngredientSearch";
+import ShoppingList from "./components/ShoppingList";
+import TopThree from "./components/TopThree";
 // import Favorites from "./components/Favorites";
-import logo from './images/WhatsInTheFridgeFlat.png'
-import veg from './images/Vegetables.jpg'
-import './App.css';
+import logo from "./images/WhatsInTheFridgeFlat.png";
+import veg from "./images/Vegetables.jpg";
+import "./App.css";
 
 //authentication
-import { BrowserRouter as Router, Link, Switch, Route, useHistory } from 'react-router-dom';
-import Local from './components/helper/Local';
-import Api from './components/helper/Api';
-import NavBar from './components/authentication/NavBar';
-import ErrorPage from './components/authentication/ErrorPage';
-import AuthenticationRoute from './components/authentication/AuthenticationRoute';
-import UserLogin from './components/authentication/UserLogin';
-import ProfileView from './components/authentication/ProfileView';
-import MembersOnlyView from './components/authentication/MembersOnlyView';
-// import Routes from './components/Routes';
+import {
+  BrowserRouter as Router,
+  Link,
+  Switch,
+  Route,
+  useHistory,
+} from "react-router-dom";
+import Local from "./components/helper/Local";
+import Api from "./components/helper/Api";
+import NavBar from "./components/authentication/NavBar";
+import ErrorPage from "./components/authentication/ErrorPage";
+import AuthenticationRoute from "./components/authentication/AuthenticationRoute";
+import UserLogin from "./components/authentication/UserLogin";
+import ProfileView from "./components/authentication/ProfileView";
+import MembersOnlyView from "./components/authentication/MembersOnlyView";
 
 function App() {
-
   //Hooks
-  const [isFavorites, setIsFavorites] = useState(true)
+  const [isFavorites, setIsFavorites] = useState(true);
   // const [isRecipie, setIsRecipie] = useState(false) //caution - spelling! Do we need this?
-  const [userId, setUserId] = useState(1)
+  const [userId, setUserId] = useState(1);
   const [missingIngredients, setMissingIngredients] = useState([]);
   const [topSuggestions, setTopSuggestions] = useState([]);
-
+  const [shoppingList, setShoppingList] = useState([]);
 
   /* function setFeatId(id){
      let ix = topThree.findIndex(t => (t.id ===id));
@@ -36,75 +39,95 @@ function App() {
     }*/
 
   const [user, setUser] = useState(Local.getUser());
-    const [loginErrorMsg, setLoginErrorMsg] = useState('');
-    const history = useHistory();
+  const [loginErrorMsg, setLoginErrorMsg] = useState("");
+  const history = useHistory();
 
-    async function doLogin(username, password) {
-      let response = await Api.loginUser(username, password);
-      if (response.ok) {
-          Local.saveUserInfo(response.data.token, response.data.user);
-          setUser(response.data.user);
-          setLoginErrorMsg('');
-          history.push('/');
-      } else {
-          setLoginErrorMsg('Login failed');
-      }
+  async function doLogin(username, password) {
+    let response = await Api.loginUser(username, password);
+    if (response.ok) {
+      Local.saveUserInfo(response.data.token, response.data.user);
+      setUser(response.data.user);
+      setLoginErrorMsg("");
+      history.push("/");
+    } else {
+      setLoginErrorMsg("Login failed");
+    }
   }
-    function doLogout() {
-      Local.removeUserInfo();
-      setUser(null);
-      history.push('/');
+  function doLogout() {
+    Local.removeUserInfo();
+    setUser(null);
+    history.push("/");
   }
-  
+
   return (
-
-  <div className="App" style={{ backgroundColor: '#DDFFBC' }}>
-
-    {/* <NavBar user={user} onLogoshut={doLogout} /> */}
-                  <h1> What's in the Fridge? </h1>
-
-    <nav className="navbar navbar-expand-sm navbar-dark" style={{ backgroundColor: '#52734D' }}>
-
-
-      
+    <div className="App" style={{ backgroundColor: "#DDFFBC" }}>
+      {/* <NavBar user={user} onLogoshut={doLogout} /> */}
+      <h1> What's in the Fridge? </h1>
+      <nav
+        className="navbar navbar-expand-sm navbar-dark"
+        style={{ backgroundColor: "#52734D" }}
+      >
         {/* "Brand"/Logo */}
-        <img className="navbar-brand" className="img-fluid" href="#" src={veg}></img>
+        <img
+          className="navbar-brand"
+          className="img-fluid"
+          href="#"
+          src={veg}
+        ></img>
 
         {/* Hamburger Icon */}
-        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span className="navbar-toggler-icon"></span>
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarNavAltMarkup"
+          aria-controls="navbarNavAltMarkup"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span className="navbar-toggler-icon"></span>
         </button>
 
         {/* Menu Items */}
         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div className="navbar-nav">
-                <a className="nav-link active" href="#">Home <span className="sr-only">(current)</span></a>
-                <a className="nav-link" href="#">Shopping List</a>
-
-            </div>
+          <div className="navbar-nav">
+            <Link to="/" className="nav-link active">
+              Home <span className="sr-only">(current)</span>
+            </Link>
+            <Link to="/shopping-list" className="nav-link">
+              Shopping List
+            </Link>
+            <Link to="/login" className="nav-link">
+              Login Page
+            </Link>
+          </div>
         </div>
-    </nav>
+      </nav>
+      <div className="container mt-4">
+        <h2 className="text-center" style={{ color: "#375433" }}>
+          I am hungry....
+        </h2>
+      </div>{" "}
+      {/* .container */}
+      <div className="container">
+        <Switch>
+          <Route path="/shopping-list">
+            <ShoppingList userId={userId} items={shoppingList}/>
+          </Route>
+          <Route path="/login" component={UserLogin} />
 
+          <Route path="/">
+            <IngredientSearch
+              setMyTopSuggestions={setTopSuggestions}
+              userId={userId}
+            />
+            <TopThree userId={userId} topThree={topSuggestions} setItems={setShoppingList}/>
+          </Route>
+        </Switch>
 
-    <div className="container mt-4">
+        {/* AUTHENTICATION */}
 
-      <h2 className="text-center" style={{color: '#375433'}}>
-         I am hungry....
-      </h2>
-  
-
-    </div> {/* .container */}
-
-    <div className="container">
-      <Switch>
-    
-        <IngredientSearch userId = {userId}/>
-        <ShoppingList userId = {userId}/>
-
-
-             {/* AUTHENTICATION */}
-
-             <AuthenticationRoute path="/shoppingList" exact>
+        <AuthenticationRoute path="/shoppingList" exact>
                 <ShoppingList userId={userId}/>
              </AuthenticationRoute>
                       
@@ -123,22 +146,15 @@ function App() {
                               />
                           </Route>
                   <ErrorPage code="404" text="Page not found" />
-                </Switch>
 
-              </div>
-
-    <footer className="footer text-center p-3 mt-3 bg-secondary text-light">
-        <img src = {logo}></img>
-
-        <br />
-        A CodeOp Team Project by Abigail Fitzjoshua, Anastasia Pirvu, Kat Hurdley and Holly Lyford
-    </footer>
-
+      </div>
+      <footer className="footer text-center p-3 mt-3 bg-secondary text-light">
+        <img src={logo}></img>
+        <br />A CodeOp Team Project by Abigail Fitzjoshua, Anastasia Pirvu, Kat
+        Hurdley and Holly Lyford
+      </footer>
     </div>
-   
   );
-
-  
 }
 
 export default App;
