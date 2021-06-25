@@ -1,5 +1,3 @@
-
-//edit to suit
 import Local from './Local';
 
 

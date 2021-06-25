@@ -18,7 +18,7 @@ import {
 } from "react-router-dom";
 import Local from "./components/helper/Local";
 import Api from "./components/helper/Api";
-import NavBar from "./components/authentication/NavBar";
+//import NavBar from "./components/authentication/NavBar";
 import ErrorPage from "./components/authentication/ErrorPage";
 import AuthenticationRoute from "./components/authentication/AuthenticationRoute";
 import UserLogin from "./components/authentication/UserLogin";
@@ -137,6 +137,10 @@ function App() {
              <AuthenticationRoute path="/users/:userId" exact>
                 <ProfileView /> 
               </AuthenticationRoute> {/* Displays profile page after user logs in */}
+
+              <Route path="/users" exact>
+                        <UsersView />
+                    </Route>
 
               <AuthenticationRoute path="/members-only" exact>
                         <MembersOnlyView />
