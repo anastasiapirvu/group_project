@@ -6,6 +6,7 @@ import TopThree from "./components/TopThree";
 import logo from "./images/WhatsInTheFridgeFlat.png";
 import veg from "./images/Vegetables.jpg";
 import "./App.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 //authentication
 import {

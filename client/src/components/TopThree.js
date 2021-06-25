@@ -76,33 +76,18 @@ function TopThree(props){
     return (
         <div className="TopThree">
 
-  
-
-          {/* <h2 className="text-center">Your Top Three Suggestions</h2>
-            <div className="row text-center">
-              {topThree.map(t => (
-              <ul className="col-sm-6 col-md-4 mb-3">
-                <li key ={t.id}>{t.title}.</li>
-                <li><img src={t.image}/></li>
-                <li><p>Missing Ingredients: {missedList(t)}</p></li>
-                <li><button onClick={e => sortData(t)} onClick={(e =>props.refreshCb())}>Add to Shopping List</button></li>
-              <br/><br/>
-              </ul>
-            ))}
-            </div> */}
-
-            <h2 className="text-center">Your Top Three Suggestions</h2>
+            {/* <h2 className="text-center">Your Top Three Suggestions</h2> */}
             <div className="row">
                 {/* Span 50% above 'sm' breakpoint, 25% above 'lg' breakpoint */}
                 {props.topThree.map(t => (
                 <ul className="col-sm-6 col-md-4 mb-3" key ={t.id} >
                   <div className="card" style={{ backgroundColor: '#FEFFDE' }} className="text-center">
-                  <img src={t.image}/><br/>
-                  <a onClick={e => props.setFeatCb(t.id)} className="btn btn-primary">More Information</a>
+                  <h5 className="card-title card-header">{t.title}</h5>
+                  <img src={t.image} className="img-thumbnail"/><br/>
+                  <a onClick={e => props.setFeatCb(t.id)} className="btn btn-secondary">More Information</a>
                     <div className="card-body" >
-                      <h5 className="card-title">{t.title}</h5>
                       <p className="card-text">Missing Ingredients: {missedList(t)}</p>
-                      <a onClick={e => sortData(t)} className="btn btn-primary">Add to Shopping List</a>
+                      <a onClick={e => sortData(t)} className="btn btn-secondary">Add to Shopping List</a>
                     </div>
                   </div>
                 </ul>
