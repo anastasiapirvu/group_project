@@ -7,13 +7,13 @@ const { SECRET_KEY } = require("../config");
  **/
 
 function ensureUserLoggedIn(req, res, next) {
-    let token = _getToken(req);
+    let token = _getToken(req);                 //GET THE TOKEN
 
     try {
-        // Throws error on invalid/missing token
-        jwt.verify(token, SECRET_KEY);
-        // If we get here, a valid token was passed
-        next();
+        jwt.verify(token, SECRET_KEY);              //VERIFY THE TOKEN. THROW AN ERROR IF TOKEN IS INVALID OR MISSING
+       
+        //AFTER TOKEN IS PASSED LET THE NEXT MIDDLEWARE RUN IF IT'S OK
+        next();                                     
     } catch (err) {
         res.status(401).send({ error: 'Unauthorized' });
     }
@@ -21,21 +21,23 @@ function ensureUserLoggedIn(req, res, next) {
 
 
 /**
- * Make sure user is logged in and is accessing his/her own page.
- * i.e. userId in token === userId in URL param
+  MAKES SURE USER ONLY HAS ACCES TO THEIR PAGE,
+  i.e. userId in token === userId in URL param
  **/
 
 function ensureSameUser(req, res, next) {
     let token = _getToken(req);
 
     try {
-        // Throws error on invalid/missing token
+        // THROW AN ERROR IF TOKEN IS INVALID OR MISSING
+       
         let payload = jwt.verify(token, SECRET_KEY);
-        // If we get here, a valid token was passed
+
+        //AFTER TOKEN IS PASSED LET THE NEXT MIDDLEWARE RUN IF IT'S OK
         if (payload.userId === Number(req.params.userId)) {
             next();
         } else {
-            res.status(401).send({ error: 'Unauthorized' });
+            res.status(401).send({ error: 'Unauthorized' }); // DISPLAY 401 -- UNAUTHORIZED ACCESS
         }
     } catch (err) {
         res.status(401).send({ error: 'Unauthorized' });
