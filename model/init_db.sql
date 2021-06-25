@@ -6,14 +6,16 @@ DROP TABLE IF EXISTS users;
 
 CREATE TABLE users(
     id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    first_name VARCHAR(20) NOT NULL,
-    last_name VARCHAR(20) NOT NULL
+    username VARCHAR(30) NOT NULL,
+    password VARCHAR(200) NOT NULL,
+    email VARCHAR(200) NOT NULL,
 );
 
-INSERT INTO users (first_name, last_name)
+INSERT INTO users (username, password, email)
 VALUES
-('Leslie', 'Knope'),
-('Ben', 'Wyatt');
+('Leslie Knope', '98765xyz', 'leslieKnope@gmail.com'),
+('Ben Wyatt', '12345abc', 'benwyatt@gmail.com');
+    
     
 
 CREATE TABLE items(

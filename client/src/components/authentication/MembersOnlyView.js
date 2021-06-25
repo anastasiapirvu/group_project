@@ -27,7 +27,7 @@ function MembersOnlyView(props) {
     }
 
     if (!memberMsg) {
-        return <h2>Loading...</h2>;
+        return <h3>Loading...</h3>;
     }
 
     return (

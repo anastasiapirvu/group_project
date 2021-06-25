@@ -2,12 +2,21 @@ var express = require('express');
 var router = express.Router();
 const bodyParser = require("body-parser");
 const db = require("../model/helper");
+const { ensureUserLoggedIn } = require('../middleware/guards')
 
 router.use(bodyParser.json());
 
 // homepage
 router.get("/", (req, res) => {
-  res.send({ message: 'Welcome to the ShoppingList' });
+  res.send({ message: 'I am hungry....... Try /users' });
+});
+
+
+
+//LOGIN
+//GET members-only
+router.get('/members-only', ensureUserLoggedIn, function(req, res, next) {
+  res.send({ message: 'Here is your Members Only content from the server...' });
 });
 
 //Get ALL items in shopping
